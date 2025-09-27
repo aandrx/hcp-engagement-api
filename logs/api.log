@@ -1,0 +1,7 @@
+2025-09-27 19:04:57,828 INFO __main__ Server initialized for eventlet.
+2025-09-27 19:04:57,836 WARNING __main__ Redis not available, using in-memory storage
+2025-09-27 19:04:58,884 INFO __main__ Sample ML models trained successfully
+2025-09-27 19:04:58,887 INFO __main__ 🚀 Starting Open HCP Engagement API v2.0
+2025-09-27 19:04:58,887 INFO __main__ 📚 Documentation: http://localhost:5000/docs/
+2025-09-27 19:04:58,887 INFO __main__ 🔐 Authentication: Bearer token required for protected endpoints
+2025-09-27 19:04:58,887 INFO __main__ 🌐 WebSocket: Real-time notifications available
