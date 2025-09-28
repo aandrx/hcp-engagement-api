@@ -7,7 +7,7 @@ from typing import Dict, Any
 
 # formatting functions
 def format_compact_output(data: Dict[str, Any]) -> str:
-    """Format compact outpu                print(f"Analysis Type: {analysis_data.get('analysis_type', 'N/A')}")
+    """Format compact output for better readability print(f"Analysis Type: {analysis_data.get('analysis_type', 'N/A')}")
                 print(f"Model Used: {metadata.get('model_used', 'N/A')}")
                 
                 analysis_result = analysis_data.get('analysis', 'No analysis content')r better readability"""
