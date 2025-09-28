@@ -1,106 +1,198 @@
-# Groq-Powered HCP Engagement API
+Groq-Powered HCP Engagement API
+=================================
 
+[![Issues](https://img.shields.io/github/issues/aandrx/hcp-engagement-api.svg)](https://github.com/aandrx/hcp-engagement-api/issues)
 [![API Version](https://img.shields.io/badge/version-2.2-blue.svg)](https://github.com/aandrx/hcp-engagement-api)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://python.org)
 [![Flask](https://img.shields.io/badge/flask-2.3.3-orange.svg)](https://flask.palletsprojects.com)
 [![Groq AI](https://img.shields.io/badge/AI-Groq%20Powered-purple.svg)](https://groq.com)
 
-A modern, AI-powered Healthcare Provider (HCP) engagement platform that combines medical literature search with advanced Groq AI analysis for enhanced clinical decision-making.
+## Description:
 
-## Features
+A comprehensive AI-powered Healthcare Provider (HCP) engagement API that provides intelligent medical literature analysis, risk prediction, and population health insights powered by ultra-fast Groq AI models. Transform clinical decision-making with evidence-based recommendations in seconds.
 
-### AI-Powered Analysis
-- **Groq Lightning-Fast AI**: Ultra-fast inference using Llama 3.1, Mixtral, and Gemma models
-- **Intelligent Literature Analysis**: AI-powered relevance scoring and clinical implications
-- **Multi-Model Support**: Choose from multiple Groq models based on your needs
-- **Clinical Context Understanding**: Contextual analysis based on specialty and patient conditions
+### Basic Usage - Literature Search
 
-### Literature & Research
-- **PubMed Integration**: Real-time access to medical literature via PubMed API
-- **Smart Search**: Specialty-specific search with keyword and condition filtering
-- **Relevance Scoring**: AI-driven relevance assessment for search results
-- **Comprehensive Abstracts**: Detailed article summaries with publication data
+```bash
+curl -X POST https://your-api-domain.com/literature/search \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "specialty": "Cardiology",
+    "keywords": ["heart failure", "statins"],
+    "patient_conditions": ["hypertension"],
+    "max_results": 3,
+    "enable_ai_analysis": true
+  }'
+```
 
-### Healthcare Analytics
-- **Risk Prediction**: Rule-based patient risk assessment
-- **Cost Estimation**: Treatment cost prediction with complexity factors
-- **Population Health**: Trend analysis across patient populations
-- **Real-time Insights**: Live analytics with WebSocket notifications
+Response
 
-### Enterprise Security
-- **JWT Authentication**: Secure token-based authentication
-- **Role-Based Access**: Provider and admin role management
-- **CORS Protection**: Configurable cross-origin resource sharing
-- **API Rate Limiting**: Built-in protection against abuse
-
-### Real-Time Features
-- **WebSocket Support**: Live notifications and updates
-- **Event Streaming**: Real-time clinical alerts and insights
-- **Multi-User Support**: Concurrent user session management
-
-## Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Redis (optional, for caching)
-- Groq API key (get one at [console.groq.com](https://console.groq.com))
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aandrx/hcp-engagement-api.git
-   cd hcp-engagement-api
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Configure your environment**
-   ```bash
-   # Required: Add your Groq API key
-   GROQ_API_KEY=your_groq_api_key_here
-   
-   # Security keys (generate secure random strings)
-   SECRET_KEY=your_flask_secret_key_here_64_characters_long
-   JWT_SECRET_KEY=your_jwt_secret_key_here_64_characters_long
-   ```
-
-5. **Run the application**
-   ```bash
-   python app.py
-   ```
-
-6. **Access the API**
-   - API Documentation: `http://localhost:5000/docs/`
-   - Health Check: `http://localhost:5000/health`
-
-## API Documentation
-
-### Authentication
-
-All protected endpoints require a Bearer token in the Authorization header.
-
-#### Login
-```http
-POST /auth/login
-Content-Type: application/json
-
+```json
 {
-  "username": "demo_provider",
-  "password": "demo123"
+  "status": "success",
+  "data": {
+    "studies": [
+      {
+        "title": "Combination ACE Inhibitor and Beta-Blocker Therapy in Heart Failure",
+        "journal": "Journal of the American College of Cardiology",
+        "publication_date": "2024-03-15",
+        "relevance_score": 0.92,
+        "authors": ["Johnson M", "Smith K"]
+      }
+    ],
+    "ai_analysis": {
+      "summary": "The literature strongly supports combination therapy for heart failure patients with comorbid hypertension.",
+      "key_findings": [
+        "Combination therapy reduces mortality by 28%",
+        "Early initiation improves outcomes"
+      ],
+      "confidence_score": 0.89
+    }
+  }
 }
 ```
 
-**Response:**
+### Advanced Usage - Direct AI Analysis
+
+Analyze any clinical text using Groq AI:
+
+```bash
+curl -X POST https://your-api-domain.com/ai/analyze \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "65-year-old male with heart failure (EF 35%), hypertension, diabetes",
+    "analysis_type": "clinical_implications",
+    "model": "llama-3.1-8b-instant"
+  }'
+```
+
+Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "analysis": "This patient requires evidence-based guideline-directed medical therapy. Key priorities include ACE inhibitor and beta-blocker therapy initiation.",
+    "analysis_type": "clinical_implications"
+  },
+  "metadata": {
+    "model_used": "llama-3.1-8b-instant",
+    "next_steps": [
+      "Review current medications for contraindications",
+      "Order baseline labs (BUN, creatinine, electrolytes)"
+    ]
+  }
+}
+```
+
+### Risk Prediction
+
+Assess patient cardiovascular risk:
+
+```bash
+curl -X POST https://your-api-domain.com/analytics/predict-risk \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "patient_data": {
+      "age": 65,
+      "systolic_bp": 150,
+      "glucose": 130,
+      "cholesterol": 260,
+      "bmi": 32,
+      "smoking": 1
+    }
+  }'
+```
+
+Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "risk_score": 0.78,
+    "risk_level": "high",
+    "10_year_risk_percentage": 23.4,
+    "risk_factors": [
+      {
+        "factor": "hypertension",
+        "severity": "moderate",
+        "contribution": 0.25
+      }
+    ],
+    "recommendations": [
+      "Initiate antihypertensive therapy",
+      "Start moderate-intensity statin therapy"
+    ]
+  }
+}
+```
+
+### AI Model Support
+
+You can specify different Groq models for various use cases by using the `model` parameter:
+
+```bash
+curl -X POST https://your-api-domain.com/ai/analyze \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "Complex clinical case requiring detailed analysis",
+    "model": "llama-3.1-70b-versatile"
+  }'
+```
+
+#### Supported AI Models
+
+| Model | Best For | Speed | Use Cases |
+|-------|----------|-------|-----------|
+| `llama-3.1-8b-instant` | General analysis | Ultra-fast | Literature summaries, basic risk assessment |
+| `llama-3.1-70b-versatile` | Complex reasoning | Fast | Differential diagnosis, detailed treatment planning |
+| `mixtral-8x7b-32768` | Multi-specialty | Balanced | Cross-specialty consultations |
+| `gemma2-9b-it` | Structured analysis | Fast | Guideline adherence, protocol development |
+
+### Response Formats
+
+You can request compact responses for mobile applications by adding the `format` parameter:
+
+```bash
+curl -X POST https://your-api-domain.com/literature/search?format=compact \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"specialty": "Cardiology", "keywords": ["heart failure"]}'
+```
+
+Response (Compact)
+
+```json
+{
+  "status": "success",
+  "data": {
+    "study_count": 5,
+    "key_findings": ["Combination therapy reduces mortality by 28%"],
+    "confidence": 0.89
+  }
+}
+```
+
+### Authentication
+
+All endpoints require authentication. First, obtain a token:
+
+```bash
+curl -X POST https://your-api-domain.com/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "demo_provider",
+    "password": "demo123"
+  }'
+```
+
+Response
+
 ```json
 {
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
@@ -113,235 +205,99 @@ Content-Type: application/json
 }
 ```
 
-### Literature Search with AI Analysis
+### Documentation
 
-Search medical literature with Groq AI-powered analysis:
+<div align="center">
+  <p>
+    <a href="http://localhost:5000/docs/">
+      <img width="200" height="52" src="https://img.shields.io/badge/Swagger_API_Docs-85EA2D.svg?logo=swagger&logoColor=black&style=for-the-badge" />
+    </a>
+  </p>
+  <p>
+    <a href="http://localhost:5000/health">
+      <img width="200" height="52" src="https://img.shields.io/badge/Health_Check-00D9FF.svg?logo=statuspage&logoColor=white&style=for-the-badge" />
+    </a>
+  </p>
+</div>
 
-```http
-POST /literature/search
-Authorization: Bearer YOUR_TOKEN
-Content-Type: application/json
+## Local Development
 
-{
-  "specialty": "Cardiology",
-  "keywords": ["heart failure", "statins", "mortality reduction"],
-  "patient_conditions": ["hypertension", "diabetes", "hyperlipidemia"],
-  "max_results": 5,
-  "enable_ai_analysis": true,
-  "ai_model": "llama-3.1-8b-instant"
-}
-```
+### Prerequisites
 
-**Response:**
-```json
-{
-  "studies": [
-    {
-      "id": "study_1",
-      "title": "Advanced Cardiology Interventions for heart failure, statins, mortality reduction",
-      "journal": "Journal of Clinical Medicine",
-      "publication_date": "2024-01-15",
-      "relevance_score": 0.9,
-      "abstract": "This comprehensive study examines...",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/...",
-      "authors": ["Smith J", "Johnson A"]
-    }
-  ],
-  "ai_analysis": {
-    "summary": "The reviewed articles provide strong evidence for...",
-    "key_findings": [
-      "Combination therapy reduces mortality by 30%",
-      "ACE inhibitors show significant benefit in heart failure patients"
-    ],
-    "clinical_implications": [
-      "Consider combination ACE inhibitor and beta-blocker therapy",
-      "Monitor for contraindications in diabetic patients"
-    ],
-    "confidence_score": 0.85,
-    "model_used": "llama-3.1-8b-instant"
-  },
-  "ai_capabilities": {
-    "groq_available": true,
-    "model_used": "llama-3.1-8b-instant",
-    "models_available": [
-      "llama-3.1-8b-instant",
-      "llama-3.1-70b-versatile",
-      "mixtral-8x7b-32768",
-      "gemma2-9b-it"
-    ]
-  }
-}
-```
+- Python 3.8+
+- Groq API key (get one at [console.groq.com](https://console.groq.com))
 
-### Direct AI Analysis
-
-Analyze any clinical text using Groq AI:
-
-```http
-POST /ai/analyze
-Authorization: Bearer YOUR_TOKEN
-Content-Type: application/json
-
-{
-  "text": "Heart failure patients with hypertension often benefit from ACE inhibitors and beta-blockers. Recent studies show combination therapy can reduce mortality by up to 30%.",
-  "analysis_type": "clinical_implications",
-  "model": "llama-3.1-8b-instant",
-  "context": "Cardiology patient with heart failure and hypertension"
-}
-```
-
-### Risk Prediction
-
-Assess patient health risks using clinical data:
-
-```http
-POST /analytics/predict-risk
-Authorization: Bearer YOUR_TOKEN
-Content-Type: application/json
-
-{
-  "patient_data": {
-    "age": 65,
-    "systolic_bp": 150,
-    "glucose": 130,
-    "cholesterol": 260,
-    "bmi": 32,
-    "smoking": 1
-  },
-  "model_type": "risk"
-}
-```
-
-**Response:**
-```json
-{
-  "risk_score": 0.78,
-  "risk_level": "high",
-  "risk_factors": ["hypertension", "diabetes", "hyperlipidemia", "obesity"],
-  "confidence": 0.85,
-  "method": "rule_based_analysis"
-}
-```
-
-### Available AI Models
-
-Get list of available Groq models:
-
-```http
-GET /ai/models
-Authorization: Bearer YOUR_TOKEN
-```
-
-## Configuration
-
-### Environment Variables
-
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `GROQ_API_KEY` | Your Groq API key | - | Yes |
-| `SECRET_KEY` | Flask secret key | `dev-secret-key` | Yes |
-| `JWT_SECRET_KEY` | JWT signing key | `jwt-secret` | Yes |
-| `REDIS_URL` | Redis connection URL | `redis://localhost:6379/0` | No |
-| `ALLOWED_ORIGINS` | CORS allowed origins | `http://localhost:3000` | No |
-| `FLASK_DEBUG` | Enable debug mode | `False` | No |
-
-### AI Model Selection
-
-Choose the right Groq model for your use case:
-
-- **llama-3.1-8b-instant**: Fast, efficient, good for general analysis
-- **llama-3.1-70b-versatile**: More capable, better for complex medical reasoning
-- **mixtral-8x7b-32768**: Balanced performance and speed
-- **gemma2-9b-it**: Specialized for instruction following
-
-## Testing
-
-Run the comprehensive test suite:
+### Installation
 
 ```bash
-# Start the API server first
-python app.py
+git clone https://github.com/aandrx/hcp-engagement-api.git
+cd hcp-engagement-api
+pip install -r requirements.txt
+```
 
-# In another terminal, run tests
+### Environment Setup
+
+```bash
+cp .env.example .env
+# Edit .env with your configuration:
+# GROQ_API_KEY=your_groq_api_key_here
+```
+
+### Basic Usage
+
+```bash
+python app.py
+```
+
+The API will be available at `http://localhost:5000`
+
+### Testing
+
+```bash
+# Run comprehensive test suite
 python test_api.py
 ```
 
-The test suite includes:
-- Authentication testing
-- Groq AI integration verification
-- Literature search functionality
-- Multiple AI model testing
-- Real-time features validation
+## Key Features
 
-## Architecture
+- **Lightning-Fast AI**: Ultra-fast Groq AI inference (sub-second responses)
+- **Medical Literature Search**: PubMed integration with AI-powered relevance analysis
+- **Risk Prediction**: Cardiovascular and health risk assessment
+- **Population Analytics**: Health trend analysis across patient populations
+- **Multiple AI Models**: Choose from Llama 3.1, Mixtral, and Gemma models
+- **Real-time Features**: WebSocket support for live notifications
+- **Enterprise Security**: JWT authentication with role-based access
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Frontend      │    │   HCP API       │    │   External      │
-│   (React/Vue)   │◄──►│   (Flask)       │◄──►│   Services      │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                              │                        │
-                              │                        ├─ Groq AI API
-                              │                        ├─ PubMed API
-                              │                        └─ Redis Cache
-                              │
-                       ┌─────────────────┐
-                       │   WebSocket     │
-                       │   (Real-time)   │
-                       └─────────────────┘
-```
+## API Endpoints
 
-## Deployment
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/auth/login` | POST | Authenticate and get access token |
+| `/literature/search` | POST | Search medical literature with AI analysis |
+| `/ai/analyze` | POST | Direct AI analysis of clinical text |
+| `/analytics/predict-risk` | POST | Patient risk prediction |
+| `/analytics/population-trends` | POST | Population health analysis |
+| `/ai/models` | GET | Available AI models |
+| `/health` | GET | API health check |
 
-### Docker Deployment
+### Dedication && Mission
 
-```dockerfile
-FROM python:3.9-slim
+<div align="center">
+<p>This API is dedicated to healthcare providers worldwide who work tirelessly to improve patient outcomes through evidence-based medicine.</p>
+  <p>Our mission is to democratize access to AI-powered clinical decision support, making advanced medical analysis available to healthcare providers regardless of their organization's size or resources.</p>
+  
+  <p>If you find this API helpful in your clinical practice, please consider:</p>
+  <p><strong>Contributing to open healthcare initiatives</strong></p>
+  <p><strong>Sharing feedback to improve clinical workflows</strong></p>
+  <p><strong>Supporting medical education and research</strong></p>
+  
+  <p align="justify">Every API call represents a potential improvement in patient care. We believe that by providing healthcare providers with instant access to AI-analyzed medical literature and clinical insights, we can collectively raise the standard of care and improve health outcomes globally.</p>
 
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["python", "app.py"]
-```
-
-### Production Considerations
-
-- Use a production WSGI server (Gunicorn, uWSGI)
-- Set up Redis for improved caching
-- Configure proper logging and monitoring
-- Implement rate limiting and API quotas
-- Use HTTPS in production
-- Set strong secret keys
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+</div>
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [Groq](https://groq.com) for ultra-fast AI inference
-- [PubMed](https://pubmed.ncbi.nlm.nih.gov/) for medical literature access
-- [Flask](https://flask.palletsprojects.com) for the web framework
-- Medical community for inspiration and feedback
-
-## Support
-
-- Email: opensource@example.com
-- Issues: [GitHub Issues](https://github.com/aandrx/hcp-engagement-api/issues)
-- Documentation: [API Docs](http://localhost:5000/docs/)
 
 ---
 
