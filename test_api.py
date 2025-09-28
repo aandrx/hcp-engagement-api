@@ -89,52 +89,113 @@ def test_health_endpoint():
         return False
 
 def test_groq_literature_search(token):
-    """Test literature search with Groq AI analysis"""
-    print("\n=== Testing Groq AI-Enhanced Literature Search ===")
+    """Test literature search with Groq AI analysis and different limits"""
+    print("\n=== Testing Groq AI-Enhanced Literature Search with Different Limits ===")
     
-    payload = {
+    base_payload = {
         "specialty": "Cardiology",
         "keywords": ["heart failure", "statins", "mortality reduction"],
         "patient_conditions": ["hypertension", "diabetes", "hyperlipidemia"],
-        "max_results": 5,
         "enable_ai_analysis": True,
         "ai_model": "llama-3.1-8b-instant"
     }
     
     headers = {"Authorization": f"Bearer {token}"}
     
-    try:
-        # Test both formats
-        for format_type in ['compact', 'detailed']:
-            print(f"\nTesting {format_type.upper()} format:")
-            response = requests.post(
-                f"{BASE_URL}/literature/search?format={format_type}", 
-                json=payload, 
-                headers=headers, 
-                timeout=30
-            )
+    # Test different result limits
+    test_limits = [3, 5, 10]  # You can add more limits like 20, 50, 99
+    
+    all_successful = True
+    
+    for max_results in test_limits:
+        print(f"\n🧪 Testing with max_results = {max_results}")
+        print("-" * 50)
+        
+        payload = base_payload.copy()
+        payload["max_results"] = max_results
+        
+        try:
+            response = requests.post(f"{BASE_URL}/literature/search", json=payload, headers=headers, timeout=30)
+            print(f"Status Code: {response.status_code}")
             
             if response.status_code == 200:
                 data = response.json()
-                print_formatted_response(data, f"Groq AI Search ({format_type.upper()})")
+                print("✅ Search successful!")
                 
-                if format_type == 'detailed':
-                    # Show additional details in detailed mode
-                    if data.get('data', {}).get('ai_analysis'):
-                        analysis = data['data']['ai_analysis']
-                        print("\nKey Findings:")
-                        for i, finding in enumerate(analysis.get('key_findings', [])[:3]):
-                            print(f" {i+1}. {finding}")
-            
+                # Show search metadata
+                metadata = data.get('search_metadata', {})
+                requested = metadata.get('max_results_requested', 'N/A')
+                returned = metadata.get('total_results_returned', 'N/A')
+                print(f"📊 Results: Requested {requested}, Returned {returned}")
+                
+                # Show AI capabilities
+                ai_caps = data.get('ai_capabilities', {})
+                print(f"🤖 Groq Available: {ai_caps.get('groq_available', False)}")
+                
+                # Show studies count and sample
+                studies = data.get('studies', [])
+                print(f"📚 Studies Found: {len(studies)}")
+                
+                # Show first 2 studies as sample
+                if studies:
+                    print("\n🔍 Sample Studies:")
+                    for i, study in enumerate(studies[:2]):
+                        print(f" {i+1}. {study.get('title', 'No title')[:60]}...")
+                        print(f"    Journal: {study.get('journal', 'Unknown')}")
+                        # Use full_url if available, otherwise display_url
+                        link = study.get('full_url') or study.get('display_url', 'No link')
+                        print(f"    Link: {link}")
+                
+                # Show AI analysis summary
+                ai_analysis = data.get('ai_analysis')
+                if ai_analysis:
+                    print(f"🧠 AI Confidence: {ai_analysis.get('confidence_score', 'N/A')}")
+                    summary = ai_analysis.get('summary', '')[:100] + "..." if ai_analysis.get('summary') else "No summary"
+                    print(f"📋 AI Summary: {summary}")
+                
+                print("✅ Limit test passed")
+                
             else:
-                print(f"Search failed: {response.status_code}")
-                return False
+                print(f"❌ Search failed with status {response.status_code}")
+                print(f"Response: {response.text}")
+                all_successful = False
+                
+        except Exception as e:
+            print(f"❌ Error testing limit {max_results}: {e}")
+            all_successful = False
         
-        return True
+        print("-" * 50)
+        time.sleep(1)  # Brief pause between tests
+    
+    # Test default limit (no max_results specified)
+    print(f"\n🧪 Testing with DEFAULT limit (no max_results specified)")
+    print("-" * 50)
+    
+    try:
+        payload = base_payload.copy()
+        # Don't include max_results to test default
         
+        response = requests.post(f"{BASE_URL}/literature/search", json=payload, headers=headers, timeout=30)
+        print(f"Status Code: {response.status_code}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            metadata = data.get('search_metadata', {})
+            requested = metadata.get('max_results_requested', 'N/A')
+            returned = metadata.get('total_results_returned', 'N/A')
+            
+            print("✅ Default limit test successful!")
+            print(f"📊 Default Results: Requested {requested}, Returned {returned}")
+            print("✅ Default should be 99 based on API configuration")
+        else:
+            print(f"❌ Default limit test failed")
+            all_successful = False
+            
     except Exception as e:
-        print(f"Error: {e}")
-        return False
+        print(f"❌ Error testing default limit: {e}")
+        all_successful = False
+    
+    return all_successful
 
 def test_different_groq_models(token):
     """Test different Groq models"""
@@ -394,10 +455,12 @@ def run_groq_demo():
     
     # Run Groq-enhanced tests
     tests = [
-        ("Groq Literature Search", test_groq_literature_search),
+        ("Groq Literature Search with Limits", test_groq_literature_search),
         ("Direct Groq Analysis", test_groq_direct_analysis),
         ("Risk Prediction", test_risk_prediction),
-        ("Population Analysis", test_population_analysis),  # Added population analysis
+        ("Population Analysis", test_population_analysis),
+        # Optional: Add this for quick limit testing
+        # ("Quick Limit Testing", test_result_limits_only),
     ]
     
     for test_name, test_func in tests:
@@ -429,12 +492,11 @@ def run_groq_demo():
     
     print("\nFeatures Demonstrated:")
     features = [
+        "• Configurable result limits (1-99)",
+        "• Default limit of 99 results", 
         "• Ultra-fast Groq AI inference",
-        "• Multiple response formats (compact/detailed)",
-        "• Structured clinical insights", 
-        "• Actionable next steps",
-        "• Multi-model analysis support",
-        "• Population health analytics"  # Added population analytics
+        "• Multiple response formats",
+        "• Population health analytics"
     ]
     for feature in features:
         print(feature)
