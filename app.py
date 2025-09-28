@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_restx import Api, Resource, fields
 from flask_socketio import SocketIO, emit
-# from flask_cors import CORS 
+from flask_cors import CORS 
 import jwt
 import bcrypt
 from passlib.context import CryptContext
@@ -40,23 +40,16 @@ if groq_api_key:
 else:
     print("WARNING: No Groq API key found in environment variables")
 
-# cors configuration
-
-# # Enhanced CORS configuration for open-source frontend compatibility
+# Enhanced CORS configuration for open-source frontend compatibility
 # allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173').split(',')
 
-# CORS(app, 
-#     resources={
-#         r"/*": {
-#             "origins": allowed_origins,
-#             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-#             "allow_headers": ["Authorization", "Content-Type", "X-Requested-With"],
-#             "supports_credentials": False,
-#             "expose_headers": ["Content-Type", "Authorization"],
-#             "max_age": 600  # Cache preflight requests for 10 minutes
-#         }
-#     }
-# )
+# Enhanced CORS configuration for development
+CORS(app, 
+    origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5173", "http://localhost:5002"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Requested-With", "Origin", "Accept"],
+    supports_credentials=False
+)
 
 # # Add global OPTIONS handler for preflight requests
 # @app.before_request
