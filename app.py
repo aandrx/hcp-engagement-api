@@ -16,10 +16,8 @@ from logging.handlers import RotatingFileHandler
 from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
-import hashlib
-import math
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
@@ -30,7 +28,17 @@ app.config.update({
     'JWT_SECRET_KEY': os.getenv('JWT_SECRET_KEY', 'jwt-secret-change-in-production'),
     'JWT_ACCESS_TOKEN_EXPIRES': timedelta(hours=1),
     'REDIS_URL': os.getenv('REDIS_URL', 'redis://localhost:6379/0'),
+    'GROQ_API_KEY': os.getenv('GROQ_API_KEY', ''),
 })
+
+# Debug: Check if Groq API key is loaded
+groq_api_key = app.config['GROQ_API_KEY']
+print(f"🔑 Groq API Key Loaded: {'Yes' if groq_api_key else 'No'}")
+if groq_api_key:
+    print(f"🔑 Key length: {len(groq_api_key)} characters")
+    print(f"🔑 Key starts with: {groq_api_key[:10]}...")
+else:
+    print("❌ WARNING: No Groq API key found in environment variables")
 
 # Security-focused CORS
 CORS(app, resources={
@@ -57,9 +65,9 @@ logger = logging.getLogger(__name__)
 
 # Initialize APIs
 api = Api(app, 
-    version='2.0', 
-    title='Open HCP Engagement API', 
-    description='Open-source Healthcare Provider engagement API with real-time features and analytics',
+    version='2.2', 
+    title='Groq-Powered HCP Engagement API', 
+    description='Healthcare Provider engagement API with Groq AI-powered literature analysis',
     doc='/docs/',
     authorizations={
         'Bearer Auth': {
@@ -76,7 +84,7 @@ api = Api(app,
 socketio = SocketIO(app, 
     cors_allowed_origins=os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000').split(','),
     logger=logger,
-    engineio_logger=False  # Disable engineio logging to reduce noise
+    engineio_logger=False
 )
 
 # Password hashing
@@ -88,11 +96,10 @@ memory_store = {}
 # Namespaces
 ns_auth = api.namespace('auth', description='Authentication operations')
 ns_literature = api.namespace('literature', description='Medical literature and studies operations')
-ns_notifications = api.namespace('notifications', description='Medical information notifications')
-ns_insurance = api.namespace('insurance', description='Insurance and patient interactions')
-ns_questionnaire = api.namespace('questionnaire', description='Patient questionnaire operations')
 ns_analytics = api.namespace('analytics', description='Advanced analytics and predictions')
-ns_realtime = api.namespace('realtime', description='Real-time data synchronization')
+ns_ai = api.namespace('ai', description='AI-powered analysis operations')
+
+# ========== MODELS DEFINITION ==========
 
 # Security Models
 login_model = api.model('Login', {
@@ -100,12 +107,14 @@ login_model = api.model('Login', {
     'password': fields.String(required=True, description='Password')
 })
 
-# Enhanced Models
+# Enhanced Models with AI analysis
 literature_search_model = api.model('LiteratureSearch', {
     'specialty': fields.String(required=True),
     'keywords': fields.List(fields.String),
     'patient_conditions': fields.List(fields.String),
-    'max_results': fields.Integer(default=10)
+    'max_results': fields.Integer(default=10),
+    'enable_ai_analysis': fields.Boolean(default=True),
+    'ai_model': fields.String(default='llama-3.1-8b-instant', description='Groq model to use')
 })
 
 # Analytics Models (Simplified)
@@ -113,6 +122,15 @@ prediction_model = api.model('PredictionRequest', {
     'patient_data': fields.Raw(required=True, description='Patient EMR data'),
     'model_type': fields.String(required=True, description='risk|outcome|cost')
 })
+
+ai_analysis_model = api.model('AIAnalysis', {
+    'text': fields.String(required=True),
+    'analysis_type': fields.String(required=True, description='summary|relevance|clinical_implications'),
+    'context': fields.Raw(description='Additional context for analysis'),
+    'model': fields.String(default='llama-3.1-8b-instant', description='Groq model to use')
+})
+
+# ========== SERVICE CLASS DEFINITIONS ==========
 
 # Authentication and Security
 class AuthService:
@@ -171,30 +189,6 @@ class AuthService:
         except jwt.InvalidTokenError:
             raise Exception("Invalid token")
 
-# Authentication decorator
-def token_required(f):
-    def decorated(*args, **kwargs):
-        token = None
-        if 'Authorization' in request.headers:
-            auth_header = request.headers['Authorization']
-            try:
-                token = auth_header.split(" ")[1]
-            except IndexError:
-                return {'message': 'Bearer token malformed'}, 401
-        
-        if not token:
-            return {'message': 'Token is missing'}, 401
-        
-        try:
-            auth_service = AuthService()
-            current_user = auth_service.verify_token(token)
-            kwargs['current_user'] = current_user
-        except Exception as e:
-            return {'message': str(e)}, 401
-        
-        return f(*args, **kwargs)
-    return decorated
-
 # Real-time Service with WebSocket
 class RealTimeService:
     """Real-time notification and data synchronization"""
@@ -225,7 +219,7 @@ class RealTimeService:
             for sid in self.active_connections[user_id]:
                 socketio.emit('notification', message, room=sid)
 
-# Lightweight Analytics Service (No scikit-learn dependency)
+# Lightweight Analytics Service
 class AnalyticsService:
     """Lightweight analytics and prediction service using statistical methods"""
     
@@ -397,19 +391,255 @@ class AnalyticsService:
         risk_counts = pd.Series(risks).value_counts().to_dict()
         return risk_counts
 
-# Enhanced Literature Service (Fixed with proper error handling)
+# Groq AI Analysis Service
+class GroqAnalysisService:
+    """AI-powered analysis service using Groq API"""
+    
+    def __init__(self):
+        self.available_models = self._get_groq_models()
+        self.groq_available = self._check_groq_availability()
+        logger.info(f"Groq Available: {self.groq_available}")
+        if self.groq_available:
+            logger.info(f"Groq API Key: {app.config['GROQ_API_KEY'][:10]}...")
+        logger.info(f"Available Models: {list(self.available_models.keys())}")
+    
+    def _get_groq_models(self):
+        """Get available Groq models"""
+        return {
+            'llama-3.1-8b-instant': 'Llama 3.1 8B Instant',
+            'llama-3.1-70b-versatile': 'Llama 3.1 70B Versatile',  # ✅ Added valid model
+            'llama3-groq-8b-8192-tool-use-preview': 'Llama 3 8B Tool Use Preview',
+            'mixtral-8x7b-32768': 'Mixtral 8x7B',
+            'gemma2-9b-it': 'Gemma 2 9B IT'
+        }
+    
+    def _check_groq_availability(self):
+        """Check if Groq API is available"""
+        try:
+            groq_api_key = app.config['GROQ_API_KEY']
+            if not groq_api_key or groq_api_key == '':
+                logger.warning("Groq API key not found or empty")
+                return False
+            
+            # Test the API with a simple request - USE A VALID MODEL
+            test_response = self._call_groq_api("Hello", "llama-3.1-8b-instant")  # ✅ Changed from llama3-8b-8192
+            if test_response is not None:
+                logger.info("✅ Groq API connection successful")
+                return True
+            else:
+                logger.warning("❌ Groq API test request failed")
+                return False
+                
+        except Exception as e:
+            logger.warning(f"Groq API check failed: {e}")
+            return False
+    
+    def _call_groq_api(self, prompt: str, model: str = 'llama-3.1-8b-instant') -> str:
+        """Make API call to Groq"""
+        try:
+            groq_api_key = app.config['GROQ_API_KEY']
+            if not groq_api_key:
+                logger.error("No Groq API key available")
+                return None
+            
+            # Validate model name
+            if model not in self.available_models:
+                logger.warning(f"Model {model} not available, using default")
+                model = 'llama-3.1-8b-instant'  # Fallback to known working model
+            
+            headers = {
+                'Authorization': f'Bearer {groq_api_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            payload = {
+                'messages': [{'role': 'user', 'content': prompt}],
+                'model': model,
+                'temperature': 0.3,
+                'max_tokens': 1024,
+                'top_p': 0.9
+            }
+            
+            logger.info(f"Calling Groq API with model: {model}")
+            response = requests.post(
+                'https://api.groq.com/openai/v1/chat/completions',
+                headers=headers,
+                json=payload,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                logger.info("✅ Groq API call successful")
+                return response.json()['choices'][0]['message']['content']
+            else:
+                logger.error(f"Groq API error: {response.status_code} - {response.text}")
+                # More detailed error logging
+                if response.status_code == 401:
+                    logger.error("Invalid Groq API key")
+                elif response.status_code == 404:
+                    logger.error(f"Model {model} not found")
+                return None
+                
+        except requests.exceptions.Timeout:
+            logger.error("Groq API request timeout")
+            return None
+        except Exception as e:
+            logger.error(f"Groq API call failed: {e}")
+            return None
+    
+    def analyze_literature_relevance(self, articles: List[Dict], search_context: Dict, model: str = 'llama-3.1-8b-instant') -> Dict:
+        """Analyze how articles are relevant to the search context using Groq"""
+        try:
+            if self.groq_available:
+                return self._analyze_with_groq(articles, search_context, model)
+            else:
+                logger.warning("Groq not available, using rule-based analysis")
+                return self._analyze_rule_based(articles, search_context)
+        except Exception as e:
+            logger.error(f"AI analysis failed: {e}")
+            return self._analyze_rule_based(articles, search_context)
+    
+    def _analyze_with_groq(self, articles: List[Dict], search_context: Dict, model: str) -> Dict:
+        """Use Groq for sophisticated analysis"""
+        try:
+            context_str = f"""
+            Clinical Context:
+            - Specialty: {search_context.get('specialty', 'Unknown')}
+            - Keywords: {', '.join(search_context.get('keywords', []))}
+            - Patient Conditions: {', '.join(search_context.get('patient_conditions', []))}
+            """
+            
+            articles_text = ""
+            for i, article in enumerate(articles[:3]):  # Analyze top 3 articles
+                articles_text += f"""
+                Article {i+1}:
+                Title: {article.get('title', 'No title')}
+                Journal: {article.get('journal', 'Unknown')}
+                Publication Date: {article.get('publication_date', 'Unknown')}
+                Abstract: {article.get('abstract', 'No abstract')}
+                """
+            
+            prompt = f"""
+            You are a medical expert analyzing research articles for clinical relevance.
+
+            {context_str}
+
+            Articles to analyze:
+            {articles_text}
+
+            Please provide a comprehensive analysis in JSON format with these fields:
+            - summary: Brief overall relevance summary (2-3 sentences)
+            - key_findings: Array of 3-5 most relevant findings from the articles
+            - clinical_implications: Array of 2-3 clinical implications for the patient conditions
+            - confidence_score: Number between 0-1 indicating confidence in relevance
+            - limitations: Array of any limitations or gaps in the articles
+
+            Focus on how these articles address the specific patient conditions and keywords.
+            Be concise but clinically precise.
+            """
+
+            analysis_text = self._call_groq_api(prompt, model)
+            
+            if analysis_text:
+                return self._parse_groq_response(analysis_text, model, search_context)
+            else:
+                raise Exception("Groq API returned no response")
+            
+        except Exception as e:
+            logger.warning(f"Groq analysis failed: {e}")
+            return self._analyze_rule_based(articles, search_context)
+    
+    def _parse_groq_response(self, text: str, model: str, search_context: Dict) -> Dict:
+        """Parse Groq response into structured format"""
+        try:
+            # Try to extract JSON if present
+            if '{' in text and '}' in text:
+                json_str = text[text.find('{'):text.rfind('}')+1]
+                result = json.loads(json_str)
+                result['model_used'] = model
+                result['analysis_timestamp'] = datetime.utcnow().isoformat()
+                return result
+            else:
+                # Fallback parsing for non-JSON responses
+                return {
+                    'summary': text[:500],
+                    'key_findings': ['See summary for detailed analysis'],
+                    'clinical_implications': ['Consult full articles for clinical applications'],
+                    'confidence_score': 0.8,
+                    'limitations': ['Response format unexpected'],
+                    'model_used': model,
+                    'analysis_timestamp': datetime.utcnow().isoformat(),
+                    'raw_response': text
+                }
+        except json.JSONDecodeError:
+            # If JSON parsing fails, create structured response from text
+            return {
+                'summary': text[:300] + "..." if len(text) > 300 else text,
+                'key_findings': ['Analysis completed via Groq AI'],
+                'clinical_implications': ['Review articles for specific clinical guidance'],
+                'confidence_score': 0.7,
+                'limitations': ['Could not parse structured response'],
+                'model_used': model,
+                'analysis_timestamp': datetime.utcnow().isoformat()
+            }
+    
+    def _analyze_rule_based(self, articles: List[Dict], search_context: Dict) -> Dict:
+        """Rule-based analysis as fallback"""
+        specialty = search_context.get('specialty', '').lower()
+        keywords = [k.lower() for k in search_context.get('keywords', [])]
+        conditions = [c.lower() for c in search_context.get('patient_conditions', [])]
+        
+        relevant_points = []
+        confidence = 0.5
+        
+        for article in articles[:3]:
+            title = article.get('title', '').lower()
+            abstract = article.get('abstract', '').lower()
+            text = title + " " + abstract
+            
+            # Simple keyword matching
+            matches = []
+            for keyword in keywords:
+                if keyword in text:
+                    matches.append(keyword)
+                    confidence += 0.1
+            
+            for condition in conditions:
+                if condition in text:
+                    matches.append(condition)
+                    confidence += 0.15
+            
+            if matches:
+                relevant_points.append(f"Article relevant for: {', '.join(set(matches))}")
+        
+        confidence = min(0.9, confidence / len(articles) if articles else 0.5)
+        
+        return {
+            'summary': f"Found {len(relevant_points)} relevant articles matching search criteria",
+            'key_findings': relevant_points[:5],
+            'clinical_implications': [
+                "Consider these articles for evidence-based decision making",
+                "Review full texts for detailed methodology and results"
+            ],
+            'confidence_score': round(confidence, 2),
+            'limitations': ['AI analysis unavailable, using keyword matching'],
+            'model_used': 'rule_based_fallback',
+            'analysis_timestamp': datetime.utcnow().isoformat()
+        }
+
+# Enhanced Literature Service with Groq AI Analysis
 class RealDataLiteratureService:
-    """Open PubMed API integration with robust error handling"""
+    """Literature service with Groq AI-powered analysis"""
     
     def __init__(self):
         self.pubmed_available = self._check_pubmed_availability()
+        self.ai_service = GroqAnalysisService()
     
     def _check_pubmed_availability(self):
         """Check if PubMed is available"""
         try:
             from pymed import PubMed
-            # Test a simple query to verify it works
-            pubmed = PubMed(tool="OpenHCPAPI", email="opensource@example.com")
+            pubmed = PubMed(tool="GroqHCPAPI", email="opensource@example.com")
             return True
         except ImportError:
             logger.warning("pymed library not available, using fallback mode")
@@ -419,41 +649,65 @@ class RealDataLiteratureService:
             return False
     
     def search_relevant_studies(self, specialty: str, keywords: List[str], 
-                               patient_conditions: List[str]) -> List[Dict]:
+                           patient_conditions: List[str], enable_ai_analysis: bool = True,
+                           ai_model: str = 'llama-3.1-8b-instant') -> Dict:
+        """Search literature with optional Groq AI analysis"""
         try:
             if self.pubmed_available:
-                return self._search_pubmed(specialty, keywords, patient_conditions)
+                studies = self._search_pubmed(specialty, keywords, patient_conditions)
             else:
-                return self._get_fallback_studies(specialty, keywords, patient_conditions)
+                studies = self._get_fallback_studies(specialty, keywords, patient_conditions)
+            
+            # Add AI analysis if enabled
+            ai_analysis = None
+            if enable_ai_analysis and studies:
+                search_context = {
+                    'specialty': specialty,
+                    'keywords': keywords,
+                    'patient_conditions': patient_conditions
+                }
+                ai_analysis = self.ai_service.analyze_literature_relevance(studies, search_context, ai_model)
+            
+            return {
+                'studies': studies,
+                'source': 'PubMed' if self.pubmed_available else 'Fallback',
+                'ai_analysis': ai_analysis,
+                'ai_capabilities': {
+                    'groq_available': self.ai_service.groq_available,
+                    'model_used': ai_model if ai_analysis else None,
+                    'models_available': list(self.ai_service.available_models.keys())
+                },
+                'search_metadata': {
+                    'specialty': specialty,
+                    'keywords': keywords,
+                    'patient_conditions': patient_conditions,
+                    'total_results': len(studies),
+                    'timestamp': datetime.utcnow().isoformat()
+                }
+            }
             
         except Exception as e:
             logger.error(f"Literature search error: {e}")
-            return self._get_fallback_studies(specialty, keywords, patient_conditions)
+            return self._get_error_response(specialty, keywords, patient_conditions)
     
     def _search_pubmed(self, specialty: str, keywords: List[str], conditions: List[str]) -> List[Dict]:
-        """Search PubMed with proper error handling"""
+        """Search PubMed"""
         try:
             from pymed import PubMed
-            pubmed = PubMed(tool="OpenHCPAPI", email="opensource@example.com")
+            pubmed = PubMed(tool="GroqHCPAPI", email="opensource@example.com")
             
             query = self._build_query(specialty, keywords, conditions)
             results = pubmed.query(query, max_results=5)
             
             studies = []
             for article in results:
-                # Handle publication_date conversion to avoid JSON serialization error
                 pub_date = getattr(article, 'publication_date', 'Unknown')
                 if hasattr(pub_date, 'strftime'):
                     pub_date = pub_date.strftime('%Y-%m-%d')
-                elif pub_date is None:
-                    pub_date = 'Unknown'
                 
-                # Handle authors field to ensure it's JSON serializable
                 authors = article.authors or []
                 if authors and not isinstance(authors, list):
                     authors = [str(author) for author in authors] if hasattr(authors, '__iter__') else [str(authors)]
-                elif authors:
-                    authors = [str(author) for author in authors]
                 
                 studies.append({
                     'id': article.pubmed_id or str(uuid.uuid4()),
@@ -464,7 +718,8 @@ class RealDataLiteratureService:
                     'abstract': article.abstract or 'Abstract not available',
                     'url': f"https://pubmed.ncbi.nlm.nih.gov/{article.pubmed_id}/" if article.pubmed_id else '',
                     'authors': authors,
-                    'source': 'PubMed'
+                    'source': 'PubMed',
+                    'full_text_available': bool(article.pubmed_id)
                 })
                 
                 if len(studies) >= 5:
@@ -488,50 +743,94 @@ class RealDataLiteratureService:
         return " AND ".join(terms) if terms else "medical research"
     
     def _get_fallback_studies(self, specialty: str, keywords: List[str], conditions: List[str]) -> List[Dict]:
-        """Reliable fallback studies"""
+        """Fallback studies with rich abstracts for better AI analysis"""
         return [
             {
                 'id': 'study_1',
-                'title': f'Advanced Treatments in {specialty} for {" and ".join(keywords)}',
+                'title': f'Advanced {specialty} Interventions for {", ".join(keywords)}',
                 'journal': 'Journal of Clinical Medicine',
                 'publication_date': '2024-01-15',
                 'relevance_score': 0.9,
-                'abstract': f'Comprehensive analysis of treatment approaches for {specialty} patients with {", ".join(conditions)}.',
+                'abstract': f'''This comprehensive study examines the efficacy of various {specialty} interventions for patients with {", ".join(conditions)}. 
+                The research demonstrates significant improvements in key outcomes including mortality reduction, quality of life measures, 
+                and physiological parameters. The study included a randomized controlled trial with 500 participants over 12 months, 
+                showing statistically significant benefits for the intervention group (p < 0.01).''',
                 'url': 'https://example.com/study1',
-                'authors': ['Smith J', 'Johnson A'],
-                'source': 'Medical Database'
+                'authors': ['Smith J', 'Johnson A', 'Williams R'],
+                'source': 'Medical Database',
+                'full_text_available': True
             },
             {
                 'id': 'study_2',
-                'title': f'{" and ".join(keywords)}: Latest Clinical Evidence',
+                'title': f'{specialty} Management of {conditions[0] if conditions else "Chronic Conditions"} with {keywords[0] if keywords else "Novel Therapies"}',
                 'journal': 'New England Journal of Medicine',
                 'publication_date': '2024-01-10', 
-                'relevance_score': 0.8,
-                'abstract': f'Recent clinical trials and studies focusing on {", ".join(keywords)} in {specialty}.',
+                'relevance_score': 0.85,
+                'abstract': f'''This multi-center study investigates the long-term outcomes of {specialty} patients receiving targeted interventions 
+                for {", ".join(conditions)}. Results indicate a 35% reduction in hospital admissions and 28% improvement in patient-reported outcomes 
+                compared to standard care. The study highlights the importance of personalized treatment approaches in {specialty}.''',
                 'url': 'https://example.com/study2',
-                'authors': ['Brown K', 'Davis M'],
-                'source': 'Clinical Trials Registry'
-            },
-            {
-                'id': 'study_3',
-                'title': f'Patient Outcomes in {specialty} with {conditions[0] if conditions else "Chronic Conditions"}',
-                'journal': 'The Lancet',
-                'publication_date': '2023-12-20',
-                'relevance_score': 0.7,
-                'abstract': f'Long-term study of patient outcomes and quality of life measures.',
-                'url': 'https://example.com/study3',
-                'authors': ['Wilson R', 'Thompson L'],
-                'source': 'Medical Research Journal'
+                'authors': ['Brown K', 'Davis M', 'Miller T'],
+                'source': 'Clinical Trials Registry',
+                'full_text_available': True
             }
         ]
+    
+    def _get_error_response(self, specialty: str, keywords: List[str], conditions: List[str]) -> Dict:
+        """Error response with basic fallback"""
+        return {
+            'studies': self._get_fallback_studies(specialty, keywords, conditions),
+            'source': 'Fallback',
+            'ai_analysis': None,
+            'ai_capabilities': {
+                'groq_available': self.ai_service.groq_available,
+                'models_available': list(self.ai_service.available_models.keys())
+            },
+            'search_metadata': {
+                'specialty': specialty,
+                'keywords': keywords,
+                'patient_conditions': conditions,
+                'total_results': 2,
+                'timestamp': datetime.utcnow().isoformat(),
+                'error': 'Service temporarily unavailable'
+            }
+        }
 
-# Initialize services
+# ========== SERVICE INITIALIZATION ==========
+
+# Initialize services (AFTER class definitions)
 auth_service = AuthService()
 realtime_service = RealTimeService()
 analytics_service = AnalyticsService()
-literature_service = RealDataLiteratureService()  # This will now check PubMed availability on init
+ai_service = GroqAnalysisService()
+literature_service = RealDataLiteratureService()
 
-# WebSocket Events
+# ========== AUTHENTICATION DECORATOR ==========
+
+def token_required(f):
+    def decorated(*args, **kwargs):
+        token = None
+        if 'Authorization' in request.headers:
+            auth_header = request.headers['Authorization']
+            try:
+                token = auth_header.split(" ")[1]
+            except IndexError:
+                return {'message': 'Bearer token malformed'}, 401
+        
+        if not token:
+            return {'message': 'Token is missing'}, 401
+        
+        try:
+            current_user = auth_service.verify_token(token)
+            kwargs['current_user'] = current_user
+        except Exception as e:
+            return {'message': str(e)}, 401
+        
+        return f(*args, **kwargs)
+    return decorated
+
+# ========== WEB SOCKET EVENTS ==========
+
 @socketio.on('connect')
 def handle_connect():
     logger.info(f"Client connected: {request.sid}")
@@ -551,7 +850,7 @@ def handle_subscribe(data):
         realtime_service.add_connection(user_id, request.sid)
         emit('subscribed', {'channel': channel, 'status': 'success'})
 
-# API Routes
+# ========== API ROUTES ==========
 
 # Authentication
 @ns_auth.route('/login')
@@ -569,23 +868,67 @@ class Login(Resource):
             logger.warning(f"Failed login attempt for {data['username']}")
             return {'message': 'Invalid credentials'}, 401
 
-# Literature Search
+# Enhanced Literature Search with Groq AI Analysis
 @ns_literature.route('/search')
 class LiteratureSearch(Resource):
     @ns_literature.expect(literature_search_model)
     @token_required
     def post(self, current_user):
-        """Search medical literature"""
+        """Search medical literature with Groq AI analysis"""
         data = request.get_json()
-        studies = literature_service.search_relevant_studies(
+        
+        result = literature_service.search_relevant_studies(
             data.get('specialty'),
             data.get('keywords', []),
-            data.get('patient_conditions', [])
+            data.get('patient_conditions', []),
+            data.get('enable_ai_analysis', True),
+            data.get('ai_model', 'llama-3.1-8b-instant')  # ✅ Changed from llama3-8b-8192
         )
         
         logger.info(f"Literature search by {current_user['sub']} for {data.get('specialty')}")
         
-        return {'studies': studies, 'source': 'PubMed'}
+        return result
+
+# Groq AI Analysis endpoint
+@ns_ai.route('/analyze')
+class AIAnalysis(Resource):
+    @ns_ai.expect(ai_analysis_model)
+    @token_required
+    def post(self, current_user):
+        """General-purpose Groq AI analysis"""
+        data = request.get_json()
+        
+        text = data.get('text', '')
+        analysis_type = data.get('analysis_type', 'summary')
+        model = data.get('model', 'llama-3.1-8b-instant')  # ✅ Changed from llama3-8b-8192
+        
+        prompt = f"""
+        Please analyze the following text for {analysis_type}:
+        
+        {text}
+        
+        Context: {data.get('context', 'General analysis')}
+        
+        Provide a concise, well-structured analysis.
+        """
+        
+        try:
+            analysis_result = ai_service._call_groq_api(prompt, model)
+            
+            return {
+                'analysis': analysis_result,
+                'model_used': model,
+                'analysis_type': analysis_type,
+                'timestamp': datetime.utcnow().isoformat(),
+                'groq_available': ai_service.groq_available
+            }
+            
+        except Exception as e:
+            return {
+                'error': f'AI analysis failed: {str(e)}',
+                'groq_available': ai_service.groq_available,
+                'timestamp': datetime.utcnow().isoformat()
+            }, 500
 
 # Analytics Predictions
 @ns_analytics.route('/predict-risk')
@@ -632,33 +975,40 @@ class PopulationTrends(Resource):
         trends = analytics_service.population_health_trends(patient_data_list)
         return trends
 
-# Real-time endpoints
-@ns_realtime.route('/notify')
-class SendNotification(Resource):
+# Groq Models endpoint
+@ns_ai.route('/models')
+class AIModels(Resource):
     @token_required
-    def post(self, current_user):
-        """Send real-time notification"""
-        data = request.get_json()
-        realtime_service.send_notification(current_user['user_id'], data)
-        return {'status': 'notification_sent'}
+    def get(self, current_user):
+        """Get available Groq models"""
+        return {
+            'available_models': ai_service.available_models,
+            'groq_available': ai_service.groq_available,
+            'timestamp': datetime.utcnow().isoformat()
+        }
 
-# Health check
+# Enhanced health endpoint
 @app.route('/health')
 def health():
-    """Health check endpoint"""
+    """Health check endpoint with Groq status"""
     return {
         'status': 'healthy',
-        'version': '2.0',
+        'version': '2.2',
         'timestamp': datetime.utcnow().isoformat(),
         'services': {
             'authentication': 'active',
             'literature_search': 'active',
             'analytics': 'active',
-            'real_time': 'active'
+            'real_time': 'active',
+            'ai_analysis': 'active'
         },
-        'open_source': True,
-        'lightweight_analytics': True,
-        'documentation': '/docs/'
+        'groq_integration': {
+            'available': ai_service.groq_available,
+            'models_available': list(ai_service.available_models.keys()),
+            'literature_analysis': True,
+            'relevance_scoring': True
+        },
+        'open_source': True
     }
 
 # Error handlers
@@ -672,10 +1022,10 @@ def internal_error(error):
     return {'message': 'Internal server error'}, 500
 
 if __name__ == '__main__':
-    logger.info("🚀 Starting Open HCP Engagement API v2.0 (Lightweight)")
-    logger.info("📚 Documentation: http://localhost:5000/docs/")
-    logger.info("🔐 Authentication: Bearer token required for protected endpoints")
-    logger.info("🌐 WebSocket: Real-time notifications available")
-    logger.info("📊 Analytics: Lightweight rule-based system (no heavy ML dependencies)")
+    logger.info("Starting Groq-Powered HCP Engagement API v2.2")
+    logger.info("AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)")
+    logger.info("Smart Literature: AI-powered relevance analysis")
+    logger.info("Authentication: Bearer token required")
+    logger.info("WebSocket: Real-time notifications available")
     
     socketio.run(app, host='0.0.0.0', port=5000, debug=os.getenv('FLASK_DEBUG', False))
