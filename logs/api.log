@@ -1134,3 +1134,1732 @@ TypeError: Object of type date is not JSON serializable
 
 2025-09-27 22:38:08,636 WARNING __main__ Groq analysis failed: Groq API returned no response
 2025-09-27 22:38:08,636 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:18:59,485 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:18:59,995 INFO __main__ Groq API call successful
+2025-09-27 23:18:59,997 INFO __main__ Groq API connection successful
+2025-09-27 23:18:59,997 INFO __main__ Groq Available: True
+2025-09-27 23:18:59,998 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:18:59,998 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:19:00,013 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:00,427 INFO __main__ Groq API call successful
+2025-09-27 23:19:00,430 INFO __main__ Groq API connection successful
+2025-09-27 23:19:00,430 INFO __main__ Groq Available: True
+2025-09-27 23:19:00,430 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:19:00,430 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:19:00,436 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:19:00,436 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:19:00,437 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:19:00,437 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:19:00,437 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:19:00,437 INFO werkzeug  * Restarting with stat
+2025-09-27 23:19:01,880 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:02,471 INFO __main__ Groq API call successful
+2025-09-27 23:19:02,473 INFO __main__ Groq API connection successful
+2025-09-27 23:19:02,473 INFO __main__ Groq Available: True
+2025-09-27 23:19:02,474 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:19:02,474 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:19:02,481 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:02,962 INFO __main__ Groq API call successful
+2025-09-27 23:19:02,964 INFO __main__ Groq API connection successful
+2025-09-27 23:19:02,965 INFO __main__ Groq Available: True
+2025-09-27 23:19:02,965 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:19:02,965 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:19:02,971 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:19:02,971 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:19:02,971 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:19:02,971 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:19:02,971 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:19:02,972 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:19:02,985 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:19:18,863 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:19:19,457 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:20,645 INFO __main__ Groq API call successful
+2025-09-27 23:19:20,648 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:19:21,144 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:22,226 INFO __main__ Groq API call successful
+2025-09-27 23:19:22,228 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:19:24,239 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:25,163 INFO __main__ Groq API call successful
+2025-09-27 23:19:29,965 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:19:31,103 INFO __main__ Groq API call successful
+2025-09-27 23:19:31,105 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:19:33,753 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:19:33,927 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:19:33,929 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:19:33,930 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:19:36,504 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:19:37,423 INFO __main__ Groq API call successful
+2025-09-27 23:19:37,426 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:19:40,026 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:19:40,216 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:19:40,218 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:19:40,218 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:22:27,897 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:22:28,294 INFO werkzeug  * Restarting with stat
+2025-09-27 23:22:30,530 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:30,973 INFO __main__ Groq API call successful
+2025-09-27 23:22:30,975 INFO __main__ Groq API connection successful
+2025-09-27 23:22:30,976 INFO __main__ Groq Available: True
+2025-09-27 23:22:30,976 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:22:30,976 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:22:30,991 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:31,475 INFO __main__ Groq API call successful
+2025-09-27 23:22:31,482 INFO __main__ Groq API connection successful
+2025-09-27 23:22:31,482 INFO __main__ Groq Available: True
+2025-09-27 23:22:31,483 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:22:31,483 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:22:31,491 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:22:31,491 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:22:31,491 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:22:31,491 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:22:31,491 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:22:31,492 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:22:31,510 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:22:37,741 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:22:37,990 INFO werkzeug  * Restarting with stat
+2025-09-27 23:22:39,713 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:40,090 INFO __main__ Groq API call successful
+2025-09-27 23:22:40,092 INFO __main__ Groq API connection successful
+2025-09-27 23:22:40,093 INFO __main__ Groq Available: True
+2025-09-27 23:22:40,093 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:22:40,093 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:22:40,102 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:40,495 INFO __main__ Groq API call successful
+2025-09-27 23:22:40,497 INFO __main__ Groq API connection successful
+2025-09-27 23:22:40,498 INFO __main__ Groq Available: True
+2025-09-27 23:22:40,498 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:22:40,498 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:22:40,503 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:22:40,503 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:22:40,504 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:22:40,504 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:22:40,504 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:22:40,504 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:22:40,518 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:22:49,412 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:22:49,888 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:50,947 INFO __main__ Groq API call successful
+2025-09-27 23:22:50,949 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:22:51,488 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:52,440 INFO __main__ Groq API call successful
+2025-09-27 23:22:52,442 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:22:54,451 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:22:55,247 INFO __main__ Groq API call successful
+2025-09-27 23:22:59,775 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:23:01,185 INFO __main__ Groq API call successful
+2025-09-27 23:23:01,188 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:23:03,740 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:23:03,901 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:23:03,903 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:23:03,903 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:23:06,478 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:23:07,463 INFO __main__ Groq API call successful
+2025-09-27 23:23:07,465 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:23:10,072 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:23:10,310 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:23:10,312 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:23:10,313 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:24:35,642 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:24:35,886 INFO werkzeug  * Restarting with stat
+2025-09-27 23:24:38,092 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:24:38,616 INFO __main__ Groq API call successful
+2025-09-27 23:24:38,619 INFO __main__ Groq API connection successful
+2025-09-27 23:24:38,619 INFO __main__ Groq Available: True
+2025-09-27 23:24:38,619 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:24:38,619 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:24:38,638 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:24:39,047 INFO __main__ Groq API call successful
+2025-09-27 23:24:39,050 INFO __main__ Groq API connection successful
+2025-09-27 23:24:39,050 INFO __main__ Groq Available: True
+2025-09-27 23:24:39,050 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:24:39,051 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:24:39,056 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:24:39,056 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:24:39,057 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:24:39,057 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:24:39,057 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:24:39,057 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:24:39,074 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:24:53,376 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:24:53,585 INFO werkzeug  * Restarting with stat
+2025-09-27 23:24:55,709 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:24:56,287 INFO __main__ Groq API call successful
+2025-09-27 23:24:56,289 INFO __main__ Groq API connection successful
+2025-09-27 23:24:56,289 INFO __main__ Groq Available: True
+2025-09-27 23:24:56,289 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:24:56,289 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:24:56,303 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:24:56,691 INFO __main__ Groq API call successful
+2025-09-27 23:24:56,693 INFO __main__ Groq API connection successful
+2025-09-27 23:24:56,693 INFO __main__ Groq Available: True
+2025-09-27 23:24:56,693 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:24:56,693 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:24:56,699 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:24:56,700 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:24:56,700 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:24:56,700 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:24:56,700 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:24:56,700 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:24:56,716 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:25:04,291 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:25:04,783 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:25:05,867 INFO __main__ Groq API call successful
+2025-09-27 23:25:05,869 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:25:06,357 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:25:07,509 INFO __main__ Groq API call successful
+2025-09-27 23:25:07,512 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:25:09,521 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:25:10,388 INFO __main__ Groq API call successful
+2025-09-27 23:25:14,928 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:25:16,153 INFO __main__ Groq API call successful
+2025-09-27 23:25:16,156 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:25:18,701 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:25:18,862 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:25:18,864 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:25:18,865 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:25:21,423 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:25:22,276 INFO __main__ Groq API call successful
+2025-09-27 23:25:22,279 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:25:24,851 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:25:25,032 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:25:25,034 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:25:25,035 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:28:20,143 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-27 23:28:20,449 INFO werkzeug  * Restarting with stat
+2025-09-27 23:28:22,888 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:28:23,345 INFO __main__ Groq API call successful
+2025-09-27 23:28:23,347 INFO __main__ Groq API connection successful
+2025-09-27 23:28:23,347 INFO __main__ Groq Available: True
+2025-09-27 23:28:23,347 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:28:23,347 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:28:23,361 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:28:23,754 INFO __main__ Groq API call successful
+2025-09-27 23:28:23,757 INFO __main__ Groq API connection successful
+2025-09-27 23:28:23,757 INFO __main__ Groq Available: True
+2025-09-27 23:28:23,757 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:28:23,757 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:28:23,762 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:28:23,762 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:28:23,763 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:28:23,763 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:28:23,763 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:28:23,763 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:28:23,782 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:32:43,709 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:32:44,068 INFO werkzeug  * Restarting with stat
+2025-09-27 23:32:46,113 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:32:46,596 INFO __main__ Groq API call successful
+2025-09-27 23:32:46,598 INFO __main__ Groq API connection successful
+2025-09-27 23:32:46,599 INFO __main__ Groq Available: True
+2025-09-27 23:32:46,599 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:32:46,599 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:32:46,611 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:32:47,025 INFO __main__ Groq API call successful
+2025-09-27 23:32:47,086 INFO __main__ Groq API connection successful
+2025-09-27 23:32:47,086 INFO __main__ Groq Available: True
+2025-09-27 23:32:47,087 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:32:47,088 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:32:47,096 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:32:47,117 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:32:47,118 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:32:47,119 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:32:47,119 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:32:47,119 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:32:47,144 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:33:08,561 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:33:08,765 INFO werkzeug  * Restarting with stat
+2025-09-27 23:33:10,927 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:33:11,322 INFO __main__ Groq API call successful
+2025-09-27 23:33:11,324 INFO __main__ Groq API connection successful
+2025-09-27 23:33:11,324 INFO __main__ Groq Available: True
+2025-09-27 23:33:11,325 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:33:11,325 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:33:11,337 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:33:11,815 INFO __main__ Groq API call successful
+2025-09-27 23:33:11,817 INFO __main__ Groq API connection successful
+2025-09-27 23:33:11,817 INFO __main__ Groq Available: True
+2025-09-27 23:33:11,817 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:33:11,818 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:33:11,824 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:33:11,824 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:33:11,824 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:33:11,824 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:33:11,824 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:33:11,825 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:33:11,839 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:35:45,521 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-27 23:35:45,728 INFO werkzeug  * Restarting with stat
+2025-09-27 23:40:10,785 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:40:11,276 INFO __main__ Groq API call successful
+2025-09-27 23:40:11,278 INFO __main__ Groq API connection successful
+2025-09-27 23:40:11,279 INFO __main__ Groq Available: True
+2025-09-27 23:40:11,279 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:40:11,279 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:40:11,295 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:40:11,670 INFO __main__ Groq API call successful
+2025-09-27 23:40:11,672 INFO __main__ Groq API connection successful
+2025-09-27 23:40:11,672 INFO __main__ Groq Available: True
+2025-09-27 23:40:11,673 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:40:11,673 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:40:11,679 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:40:11,679 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:40:11,679 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:40:11,679 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:40:11,679 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:40:11,679 INFO werkzeug  * Restarting with stat
+2025-09-27 23:40:13,015 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:40:13,397 INFO __main__ Groq API call successful
+2025-09-27 23:40:13,400 INFO __main__ Groq API connection successful
+2025-09-27 23:40:13,400 INFO __main__ Groq Available: True
+2025-09-27 23:40:13,400 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:40:13,400 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:40:13,408 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:40:13,808 INFO __main__ Groq API call successful
+2025-09-27 23:40:13,810 INFO __main__ Groq API connection successful
+2025-09-27 23:40:13,810 INFO __main__ Groq Available: True
+2025-09-27 23:40:13,811 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:40:13,811 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:40:13,816 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:40:13,817 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:40:13,817 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:40:13,817 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:40:13,817 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:40:13,817 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:40:13,833 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:41:03,560 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:41:04,078 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:41:05,274 INFO __main__ Groq API call successful
+2025-09-27 23:41:05,277 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:41:05,808 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:41:06,982 INFO __main__ Groq API call successful
+2025-09-27 23:41:06,984 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:41:08,994 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:41:09,950 INFO __main__ Groq API call successful
+2025-09-27 23:41:13,988 ERROR __main__ Population analysis error: unhashable type: 'list'
+2025-09-27 23:41:16,607 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:41:17,867 INFO __main__ Groq API call successful
+2025-09-27 23:41:17,869 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:41:20,438 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:41:20,598 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:41:20,600 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:41:20,601 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:41:23,204 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:41:24,052 INFO __main__ Groq API call successful
+2025-09-27 23:41:24,054 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:41:26,609 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:41:26,783 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:41:26,785 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:41:26,786 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:46:33,746 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:46:34,060 INFO werkzeug  * Restarting with stat
+2025-09-27 23:46:36,467 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:46:36,907 INFO __main__ Groq API call successful
+2025-09-27 23:46:36,909 INFO __main__ Groq API connection successful
+2025-09-27 23:46:36,909 INFO __main__ Groq Available: True
+2025-09-27 23:46:36,909 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:46:36,909 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:46:36,925 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:46:37,317 INFO __main__ Groq API call successful
+2025-09-27 23:46:37,320 INFO __main__ Groq API connection successful
+2025-09-27 23:46:37,320 INFO __main__ Groq Available: True
+2025-09-27 23:46:37,320 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:46:37,320 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:46:37,326 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:46:37,326 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:46:37,326 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:46:37,326 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:46:37,326 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:46:37,326 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:46:37,339 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:47:09,030 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-27 23:47:09,263 INFO werkzeug  * Restarting with stat
+2025-09-27 23:47:11,387 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:11,828 INFO __main__ Groq API call successful
+2025-09-27 23:47:11,830 INFO __main__ Groq API connection successful
+2025-09-27 23:47:11,830 INFO __main__ Groq Available: True
+2025-09-27 23:47:11,831 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:11,831 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:11,844 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:12,272 INFO __main__ Groq API call successful
+2025-09-27 23:47:12,274 INFO __main__ Groq API connection successful
+2025-09-27 23:47:12,274 INFO __main__ Groq Available: True
+2025-09-27 23:47:12,274 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:12,274 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:12,280 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:47:12,281 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:47:12,281 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:47:12,281 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:47:12,281 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:47:12,281 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:47:12,294 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:47:27,738 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:28,323 INFO __main__ Groq API call successful
+2025-09-27 23:47:28,325 INFO __main__ Groq API connection successful
+2025-09-27 23:47:28,325 INFO __main__ Groq Available: True
+2025-09-27 23:47:28,325 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:28,325 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:28,336 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:28,720 INFO __main__ Groq API call successful
+2025-09-27 23:47:28,722 INFO __main__ Groq API connection successful
+2025-09-27 23:47:28,722 INFO __main__ Groq Available: True
+2025-09-27 23:47:28,723 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:28,723 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:28,729 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:47:28,729 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:47:28,729 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:47:28,729 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:47:28,729 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:47:28,730 INFO werkzeug  * Restarting with stat
+2025-09-27 23:47:30,137 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:30,525 INFO __main__ Groq API call successful
+2025-09-27 23:47:30,528 INFO __main__ Groq API connection successful
+2025-09-27 23:47:30,528 INFO __main__ Groq Available: True
+2025-09-27 23:47:30,528 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:30,528 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:30,535 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:30,928 INFO __main__ Groq API call successful
+2025-09-27 23:47:30,930 INFO __main__ Groq API connection successful
+2025-09-27 23:47:30,931 INFO __main__ Groq Available: True
+2025-09-27 23:47:30,931 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:47:30,931 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:47:30,936 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:47:30,937 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:47:30,937 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:47:30,937 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:47:30,938 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:47:30,938 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:47:30,952 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:47:43,788 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:47:44,288 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:45,533 INFO __main__ Groq API call successful
+2025-09-27 23:47:45,535 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:47:46,004 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:47,013 INFO __main__ Groq API call successful
+2025-09-27 23:47:47,015 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:47:49,020 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:50,105 INFO __main__ Groq API call successful
+2025-09-27 23:47:54,125 ERROR __main__ Population analysis error: unhashable type: 'list'
+2025-09-27 23:47:56,672 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:47:57,699 INFO __main__ Groq API call successful
+2025-09-27 23:47:57,701 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:48:00,239 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:48:00,404 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:48:00,406 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:48:00,407 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:48:02,950 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:48:03,842 INFO __main__ Groq API call successful
+2025-09-27 23:48:03,845 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:48:06,419 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:48:06,611 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:48:06,613 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:48:06,613 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:50:07,420 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-27 23:50:07,778 INFO werkzeug  * Restarting with stat
+2025-09-27 23:50:10,119 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:50:10,599 INFO __main__ Groq API call successful
+2025-09-27 23:50:10,602 INFO __main__ Groq API connection successful
+2025-09-27 23:50:10,603 INFO __main__ Groq Available: True
+2025-09-27 23:50:10,603 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:50:10,603 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:50:10,620 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:50:11,098 INFO __main__ Groq API call successful
+2025-09-27 23:50:11,101 INFO __main__ Groq API connection successful
+2025-09-27 23:50:11,101 INFO __main__ Groq Available: True
+2025-09-27 23:50:11,101 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:50:11,101 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:50:11,107 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:50:11,107 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:50:11,108 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:50:11,108 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:50:11,108 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:50:11,108 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:50:11,123 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:50:28,486 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-27 23:50:28,709 INFO werkzeug  * Restarting with stat
+2025-09-27 23:51:50,182 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:51:50,643 INFO __main__ Groq API call successful
+2025-09-27 23:51:50,645 INFO __main__ Groq API connection successful
+2025-09-27 23:51:50,646 INFO __main__ Groq Available: True
+2025-09-27 23:51:50,646 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:51:50,646 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:51:50,653 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:51:51,021 INFO __main__ Groq API call successful
+2025-09-27 23:51:51,023 INFO __main__ Groq API connection successful
+2025-09-27 23:51:51,024 INFO __main__ Groq Available: True
+2025-09-27 23:51:51,024 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:51:51,024 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:51:51,029 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:51:51,030 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:51:51,030 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:51:51,030 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:51:51,030 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:51:51,030 INFO werkzeug  * Restarting with stat
+2025-09-27 23:51:52,377 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:51:52,891 INFO __main__ Groq API call successful
+2025-09-27 23:51:52,894 INFO __main__ Groq API connection successful
+2025-09-27 23:51:52,894 INFO __main__ Groq Available: True
+2025-09-27 23:51:52,894 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:51:52,894 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:51:52,901 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:51:53,300 INFO __main__ Groq API call successful
+2025-09-27 23:51:53,302 INFO __main__ Groq API connection successful
+2025-09-27 23:51:53,302 INFO __main__ Groq Available: True
+2025-09-27 23:51:53,302 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:51:53,302 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:51:53,309 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:51:53,309 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:51:53,309 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:51:53,309 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:51:53,309 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:51:53,310 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:51:53,323 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:52:08,301 INFO __main__ User demo_provider logged in successfully
+2025-09-27 23:52:08,763 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:52:09,788 INFO __main__ Groq API call successful
+2025-09-27 23:52:09,791 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:52:10,264 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:52:11,267 INFO __main__ Groq API call successful
+2025-09-27 23:52:11,269 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-27 23:52:13,275 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:52:14,101 INFO __main__ Groq API call successful
+2025-09-27 23:52:20,662 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:52:21,728 INFO __main__ Groq API call successful
+2025-09-27 23:52:21,730 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:52:24,265 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-27 23:52:24,435 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:52:24,437 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:52:24,437 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:52:26,995 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-27 23:52:28,012 INFO __main__ Groq API call successful
+2025-09-27 23:52:28,014 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:52:30,602 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-27 23:52:30,770 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-27 23:52:30,772 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-27 23:52:30,772 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-27 23:57:47,296 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:57:47,493 INFO werkzeug  * Restarting with stat
+2025-09-27 23:57:49,499 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:57:50,054 INFO __main__ Groq API call successful
+2025-09-27 23:57:50,056 INFO __main__ Groq API connection successful
+2025-09-27 23:57:50,057 INFO __main__ Groq Available: True
+2025-09-27 23:57:50,057 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:57:50,057 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:57:50,071 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:57:50,458 INFO __main__ Groq API call successful
+2025-09-27 23:57:50,461 INFO __main__ Groq API connection successful
+2025-09-27 23:57:50,461 INFO __main__ Groq Available: True
+2025-09-27 23:57:50,461 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:57:50,461 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:57:50,467 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:57:50,467 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:57:50,467 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:57:50,467 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:57:50,468 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:57:50,468 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:57:50,483 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:57:53,565 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:57:53,754 INFO werkzeug  * Restarting with stat
+2025-09-27 23:57:55,163 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:57:55,537 INFO __main__ Groq API call successful
+2025-09-27 23:57:55,539 INFO __main__ Groq API connection successful
+2025-09-27 23:57:55,540 INFO __main__ Groq Available: True
+2025-09-27 23:57:55,540 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:57:55,540 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:57:55,548 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:57:55,942 INFO __main__ Groq API call successful
+2025-09-27 23:57:55,945 INFO __main__ Groq API connection successful
+2025-09-27 23:57:55,945 INFO __main__ Groq Available: True
+2025-09-27 23:57:55,945 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:57:55,945 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:57:55,951 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:57:55,951 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:57:55,951 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:57:55,951 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:57:55,951 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:57:55,952 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:57:55,964 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:01,078 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:01,266 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:02,778 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:03,186 INFO __main__ Groq API call successful
+2025-09-27 23:58:03,188 INFO __main__ Groq API connection successful
+2025-09-27 23:58:03,188 INFO __main__ Groq Available: True
+2025-09-27 23:58:03,188 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:03,189 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:03,196 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:03,657 INFO __main__ Groq API call successful
+2025-09-27 23:58:03,659 INFO __main__ Groq API connection successful
+2025-09-27 23:58:03,659 INFO __main__ Groq Available: True
+2025-09-27 23:58:03,659 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:03,659 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:03,665 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:03,665 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:03,665 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:03,666 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:03,666 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:03,666 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:03,679 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:07,777 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:07,957 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:09,539 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:10,023 INFO __main__ Groq API call successful
+2025-09-27 23:58:10,026 INFO __main__ Groq API connection successful
+2025-09-27 23:58:10,026 INFO __main__ Groq Available: True
+2025-09-27 23:58:10,026 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:10,026 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:10,035 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:10,412 INFO __main__ Groq API call successful
+2025-09-27 23:58:10,415 INFO __main__ Groq API connection successful
+2025-09-27 23:58:10,415 INFO __main__ Groq Available: True
+2025-09-27 23:58:10,416 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:10,416 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:10,422 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:10,422 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:10,422 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:10,422 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:10,422 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:10,423 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:10,437 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:13,512 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:13,696 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:15,099 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:15,474 INFO __main__ Groq API call successful
+2025-09-27 23:58:15,476 INFO __main__ Groq API connection successful
+2025-09-27 23:58:15,476 INFO __main__ Groq Available: True
+2025-09-27 23:58:15,476 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:15,476 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:15,483 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:15,860 INFO __main__ Groq API call successful
+2025-09-27 23:58:15,863 INFO __main__ Groq API connection successful
+2025-09-27 23:58:15,863 INFO __main__ Groq Available: True
+2025-09-27 23:58:15,863 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:15,863 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:15,869 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:15,869 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:15,869 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:15,869 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:15,869 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:15,869 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:15,882 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:19,997 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:20,183 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:21,603 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:22,003 INFO __main__ Groq API call successful
+2025-09-27 23:58:22,005 INFO __main__ Groq API connection successful
+2025-09-27 23:58:22,005 INFO __main__ Groq Available: True
+2025-09-27 23:58:22,005 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:22,005 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:22,013 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:22,573 INFO __main__ Groq API call successful
+2025-09-27 23:58:22,575 INFO __main__ Groq API connection successful
+2025-09-27 23:58:22,575 INFO __main__ Groq Available: True
+2025-09-27 23:58:22,576 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:22,576 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:22,581 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:22,582 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:22,582 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:22,582 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:22,582 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:22,582 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:22,595 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:25,678 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:25,867 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:27,303 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:27,696 INFO __main__ Groq API call successful
+2025-09-27 23:58:27,698 INFO __main__ Groq API connection successful
+2025-09-27 23:58:27,698 INFO __main__ Groq Available: True
+2025-09-27 23:58:27,698 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:27,699 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:27,706 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:28,074 INFO __main__ Groq API call successful
+2025-09-27 23:58:28,076 INFO __main__ Groq API connection successful
+2025-09-27 23:58:28,076 INFO __main__ Groq Available: True
+2025-09-27 23:58:28,076 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:28,076 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:28,083 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:28,083 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:28,083 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:28,084 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:28,084 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:28,084 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:28,099 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:31,189 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:31,422 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:32,883 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:33,251 INFO __main__ Groq API call successful
+2025-09-27 23:58:33,252 INFO __main__ Groq API connection successful
+2025-09-27 23:58:33,253 INFO __main__ Groq Available: True
+2025-09-27 23:58:33,253 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:33,253 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:33,259 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:33,626 INFO __main__ Groq API call successful
+2025-09-27 23:58:33,628 INFO __main__ Groq API connection successful
+2025-09-27 23:58:33,628 INFO __main__ Groq Available: True
+2025-09-27 23:58:33,628 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:33,628 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:33,633 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:33,634 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:33,634 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:33,634 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:33,634 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:33,634 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:33,647 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-27 23:58:52,976 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-27 23:58:53,186 INFO werkzeug  * Restarting with stat
+2025-09-27 23:58:55,317 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:55,703 INFO __main__ Groq API call successful
+2025-09-27 23:58:55,705 INFO __main__ Groq API connection successful
+2025-09-27 23:58:55,705 INFO __main__ Groq Available: True
+2025-09-27 23:58:55,705 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:55,705 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:55,718 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-27 23:58:56,095 INFO __main__ Groq API call successful
+2025-09-27 23:58:56,097 INFO __main__ Groq API connection successful
+2025-09-27 23:58:56,097 INFO __main__ Groq Available: True
+2025-09-27 23:58:56,097 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-27 23:58:56,098 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-27 23:58:56,105 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-27 23:58:56,105 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-27 23:58:56,105 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-27 23:58:56,105 INFO __main__ Authentication: Bearer token required
+2025-09-27 23:58:56,106 INFO __main__ WebSocket: Real-time notifications available
+2025-09-27 23:58:56,106 WARNING werkzeug  * Debugger is active!
+2025-09-27 23:58:56,120 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:02:35,941 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:02:36,130 INFO werkzeug  * Restarting with stat
+2025-09-28 00:02:38,041 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:02:38,612 INFO __main__ Groq API call successful
+2025-09-28 00:02:38,615 INFO __main__ Groq API connection successful
+2025-09-28 00:02:38,615 INFO __main__ Groq Available: True
+2025-09-28 00:02:38,615 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:02:38,615 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:02:38,626 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:02:39,221 INFO __main__ Groq API call successful
+2025-09-28 00:02:39,224 INFO __main__ Groq API connection successful
+2025-09-28 00:02:39,224 INFO __main__ Groq Available: True
+2025-09-28 00:02:39,224 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:02:39,224 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:02:39,230 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:02:39,230 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:02:39,230 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:02:39,230 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:02:39,231 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:02:39,231 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:02:39,244 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:07:22,264 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:07:22,575 INFO werkzeug  * Restarting with stat
+2025-09-28 00:07:24,989 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:07:25,481 INFO __main__ Groq API call successful
+2025-09-28 00:07:25,483 INFO __main__ Groq API connection successful
+2025-09-28 00:07:25,483 INFO __main__ Groq Available: True
+2025-09-28 00:07:25,483 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:07:25,483 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:07:25,497 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:07:25,940 INFO __main__ Groq API call successful
+2025-09-28 00:07:25,943 INFO __main__ Groq API connection successful
+2025-09-28 00:07:25,943 INFO __main__ Groq Available: True
+2025-09-28 00:07:25,943 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:07:25,943 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:07:25,949 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:07:25,950 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:07:25,950 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:07:25,950 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:07:25,950 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:07:25,950 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:07:25,968 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:15:43,100 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:15:43,501 INFO werkzeug  * Restarting with stat
+2025-09-28 00:15:45,944 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:15:46,468 INFO __main__ Groq API call successful
+2025-09-28 00:15:46,470 INFO __main__ Groq API connection successful
+2025-09-28 00:15:46,470 INFO __main__ Groq Available: True
+2025-09-28 00:15:46,470 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:15:46,470 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:15:46,484 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:15:46,893 INFO __main__ Groq API call successful
+2025-09-28 00:15:46,895 INFO __main__ Groq API connection successful
+2025-09-28 00:15:46,896 INFO __main__ Groq Available: True
+2025-09-28 00:15:46,896 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:15:46,896 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:15:46,902 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:15:46,902 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:15:46,903 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:15:46,903 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:15:46,903 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:15:46,903 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:15:46,919 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:23:38,905 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:23:39,142 INFO werkzeug  * Restarting with stat
+2025-09-28 00:23:41,175 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:41,609 INFO __main__ Groq API call successful
+2025-09-28 00:23:41,611 INFO __main__ Groq API connection successful
+2025-09-28 00:23:41,611 INFO __main__ Groq Available: True
+2025-09-28 00:23:41,611 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:41,611 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:41,624 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:42,019 INFO __main__ Groq API call successful
+2025-09-28 00:23:42,021 INFO __main__ Groq API connection successful
+2025-09-28 00:23:42,021 INFO __main__ Groq Available: True
+2025-09-28 00:23:42,021 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:42,021 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:42,027 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:23:42,027 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:23:42,027 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:23:42,027 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:23:42,027 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:23:42,027 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:23:42,042 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:23:44,107 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:23:44,297 INFO werkzeug  * Restarting with stat
+2025-09-28 00:23:45,817 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:46,217 INFO __main__ Groq API call successful
+2025-09-28 00:23:46,219 INFO __main__ Groq API connection successful
+2025-09-28 00:23:46,219 INFO __main__ Groq Available: True
+2025-09-28 00:23:46,220 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:46,220 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:46,227 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:46,651 INFO __main__ Groq API call successful
+2025-09-28 00:23:46,653 INFO __main__ Groq API connection successful
+2025-09-28 00:23:46,653 INFO __main__ Groq Available: True
+2025-09-28 00:23:46,653 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:46,653 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:46,659 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:23:46,659 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:23:46,659 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:23:46,659 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:23:46,659 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:23:46,659 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:23:46,673 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:23:50,768 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:23:50,970 INFO werkzeug  * Restarting with stat
+2025-09-28 00:23:52,548 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:53,109 INFO __main__ Groq API call successful
+2025-09-28 00:23:53,111 INFO __main__ Groq API connection successful
+2025-09-28 00:23:53,111 INFO __main__ Groq Available: True
+2025-09-28 00:23:53,111 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:53,111 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:53,119 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:23:53,677 INFO __main__ Groq API call successful
+2025-09-28 00:23:53,679 INFO __main__ Groq API connection successful
+2025-09-28 00:23:53,679 INFO __main__ Groq Available: True
+2025-09-28 00:23:53,679 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:23:53,679 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:23:53,685 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:23:53,685 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:23:53,685 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:23:53,685 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:23:53,685 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:23:53,686 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:23:53,698 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:24:21,501 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:24:22,077 INFO __main__ Groq API call successful
+2025-09-28 00:24:22,080 INFO __main__ Groq API connection successful
+2025-09-28 00:24:22,080 INFO __main__ Groq Available: True
+2025-09-28 00:24:22,080 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:24:22,080 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:24:22,093 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:24:22,484 INFO __main__ Groq API call successful
+2025-09-28 00:24:22,486 INFO __main__ Groq API connection successful
+2025-09-28 00:24:22,486 INFO __main__ Groq Available: True
+2025-09-28 00:24:22,486 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:24:22,486 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:24:22,492 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:24:22,492 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:24:22,492 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:24:22,492 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:24:22,492 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:24:22,493 INFO werkzeug  * Restarting with stat
+2025-09-28 00:24:23,978 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:24:24,370 INFO __main__ Groq API call successful
+2025-09-28 00:24:24,372 INFO __main__ Groq API connection successful
+2025-09-28 00:24:24,372 INFO __main__ Groq Available: True
+2025-09-28 00:24:24,372 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:24:24,373 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:24:24,382 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:24:25,039 INFO __main__ Groq API call successful
+2025-09-28 00:24:25,041 INFO __main__ Groq API connection successful
+2025-09-28 00:24:25,042 INFO __main__ Groq Available: True
+2025-09-28 00:24:25,042 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:24:25,042 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:24:25,050 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:24:25,050 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:24:25,050 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:24:25,050 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:24:25,050 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:24:25,051 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:24:25,073 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:26:14,887 INFO __main__ User demo_provider logged in successfully
+2025-09-28 00:26:15,457 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:26:16,635 INFO __main__ Groq API call successful
+2025-09-28 00:26:16,638 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:26:17,597 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:26:18,783 INFO __main__ Groq API call successful
+2025-09-28 00:26:18,787 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:26:20,803 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:26:21,757 INFO __main__ Groq API call successful
+2025-09-28 00:26:28,421 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:26:29,543 INFO __main__ Groq API call successful
+2025-09-28 00:26:29,546 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:26:32,158 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-28 00:26:32,329 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:26:32,332 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:26:32,332 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:26:35,060 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-28 00:26:36,036 INFO __main__ Groq API call successful
+2025-09-28 00:26:36,038 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:26:38,650 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-28 00:26:38,872 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:26:38,874 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:26:38,875 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:31:26,342 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:31:27,191 INFO werkzeug  * Restarting with stat
+2025-09-28 00:31:29,791 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:31:30,402 INFO __main__ Groq API call successful
+2025-09-28 00:31:30,404 INFO __main__ Groq API connection successful
+2025-09-28 00:31:30,405 INFO __main__ Groq Available: True
+2025-09-28 00:31:30,405 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:31:30,405 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:31:30,419 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:31:30,846 INFO __main__ Groq API call successful
+2025-09-28 00:31:30,849 INFO __main__ Groq API connection successful
+2025-09-28 00:31:30,849 INFO __main__ Groq Available: True
+2025-09-28 00:31:30,849 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:31:30,849 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:31:30,855 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:31:30,856 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:31:30,856 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:31:30,856 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:31:30,856 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:31:30,856 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:31:30,873 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:32:01,574 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:32:01,771 INFO werkzeug  * Restarting with stat
+2025-09-28 00:32:03,447 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:32:03,834 INFO __main__ Groq API call successful
+2025-09-28 00:32:03,836 INFO __main__ Groq API connection successful
+2025-09-28 00:32:03,837 INFO __main__ Groq Available: True
+2025-09-28 00:32:03,837 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:32:03,837 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:32:03,844 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:32:04,234 INFO __main__ Groq API call successful
+2025-09-28 00:32:04,239 INFO __main__ Groq API connection successful
+2025-09-28 00:32:04,239 INFO __main__ Groq Available: True
+2025-09-28 00:32:04,239 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:32:04,258 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:32:04,265 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:32:04,265 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:32:04,265 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:32:04,265 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:32:04,265 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:32:04,266 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:32:04,280 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:42:47,140 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:42:47,380 INFO werkzeug  * Restarting with stat
+2025-09-28 00:42:49,801 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:42:50,320 INFO __main__ Groq API call successful
+2025-09-28 00:42:50,323 INFO __main__ Groq API connection successful
+2025-09-28 00:42:50,323 INFO __main__ Groq Available: True
+2025-09-28 00:42:50,323 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:42:50,323 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:42:50,336 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:42:50,808 INFO __main__ Groq API call successful
+2025-09-28 00:42:50,811 INFO __main__ Groq API connection successful
+2025-09-28 00:42:50,811 INFO __main__ Groq Available: True
+2025-09-28 00:42:50,812 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:42:50,812 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:42:50,817 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:42:50,818 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:42:50,818 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:42:50,818 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:42:50,818 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:42:50,818 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:42:50,833 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:42:57,996 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:42:58,469 INFO werkzeug  * Restarting with stat
+2025-09-28 00:43:00,531 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:43:01,086 INFO __main__ Groq API call successful
+2025-09-28 00:43:01,088 INFO __main__ Groq API connection successful
+2025-09-28 00:43:01,088 INFO __main__ Groq Available: True
+2025-09-28 00:43:01,088 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:43:01,088 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:43:01,095 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:43:01,559 INFO __main__ Groq API call successful
+2025-09-28 00:43:01,562 INFO __main__ Groq API connection successful
+2025-09-28 00:43:01,562 INFO __main__ Groq Available: True
+2025-09-28 00:43:01,562 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:43:01,562 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:43:01,568 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:43:01,568 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:43:01,568 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:43:01,568 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:43:01,568 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:43:01,568 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:43:01,582 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:43:38,372 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:43:38,956 INFO werkzeug  * Restarting with stat
+2025-09-28 00:43:41,916 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:43:42,388 INFO __main__ Groq API call successful
+2025-09-28 00:43:42,391 INFO __main__ Groq API connection successful
+2025-09-28 00:43:42,391 INFO __main__ Groq Available: True
+2025-09-28 00:43:42,391 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:43:42,391 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:43:42,409 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:43:42,818 INFO __main__ Groq API call successful
+2025-09-28 00:43:42,821 INFO __main__ Groq API connection successful
+2025-09-28 00:43:42,821 INFO __main__ Groq Available: True
+2025-09-28 00:43:42,821 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:43:42,821 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:43:42,827 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:43:42,827 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:43:42,827 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:43:42,827 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:43:42,828 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:43:42,828 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:43:42,850 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:44:18,802 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:44:19,393 INFO werkzeug  * Restarting with stat
+2025-09-28 00:44:21,796 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:44:22,314 INFO __main__ Groq API call successful
+2025-09-28 00:44:22,322 INFO __main__ Groq API connection successful
+2025-09-28 00:44:22,323 INFO __main__ Groq Available: True
+2025-09-28 00:44:22,323 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:44:22,323 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:44:22,366 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:44:22,831 INFO __main__ Groq API call successful
+2025-09-28 00:44:22,834 INFO __main__ Groq API connection successful
+2025-09-28 00:44:22,834 INFO __main__ Groq Available: True
+2025-09-28 00:44:22,834 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:44:22,834 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:44:22,841 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:44:22,841 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:44:22,841 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:44:22,841 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:44:22,842 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:44:22,842 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:44:22,862 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:44:48,486 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:44:49,064 INFO werkzeug  * Restarting with stat
+2025-09-28 00:44:51,395 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:44:51,807 INFO __main__ Groq API call successful
+2025-09-28 00:44:51,810 INFO __main__ Groq API connection successful
+2025-09-28 00:44:51,810 INFO __main__ Groq Available: True
+2025-09-28 00:44:51,811 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:44:51,811 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:44:51,836 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:44:52,243 INFO __main__ Groq API call successful
+2025-09-28 00:44:52,245 INFO __main__ Groq API connection successful
+2025-09-28 00:44:52,245 INFO __main__ Groq Available: True
+2025-09-28 00:44:52,245 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:44:52,246 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:44:52,251 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:44:52,252 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:44:52,252 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:44:52,252 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:44:52,252 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:44:52,252 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:44:52,269 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:45:10,759 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:45:11,206 INFO werkzeug  * Restarting with stat
+2025-09-28 00:45:13,404 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:45:13,821 INFO __main__ Groq API call successful
+2025-09-28 00:45:13,824 INFO __main__ Groq API connection successful
+2025-09-28 00:45:13,824 INFO __main__ Groq Available: True
+2025-09-28 00:45:13,824 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:45:13,824 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:45:13,833 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:45:14,234 INFO __main__ Groq API call successful
+2025-09-28 00:45:14,236 INFO __main__ Groq API connection successful
+2025-09-28 00:45:14,236 INFO __main__ Groq Available: True
+2025-09-28 00:45:14,236 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:45:14,236 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:45:14,242 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:45:14,242 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:45:14,242 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:45:14,242 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:45:14,242 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:45:14,243 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:45:14,255 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:47:05,765 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:47:06,449 INFO werkzeug  * Restarting with stat
+2025-09-28 00:47:09,452 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:47:09,944 INFO __main__ Groq API call successful
+2025-09-28 00:47:09,946 INFO __main__ Groq API connection successful
+2025-09-28 00:47:09,947 INFO __main__ Groq Available: True
+2025-09-28 00:47:09,947 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:47:09,947 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:47:09,961 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:47:10,328 INFO __main__ Groq API call successful
+2025-09-28 00:47:10,330 INFO __main__ Groq API connection successful
+2025-09-28 00:47:10,330 INFO __main__ Groq Available: True
+2025-09-28 00:47:10,331 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:47:10,331 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:47:10,336 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:47:10,336 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:47:10,337 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:47:10,337 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:47:10,337 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:47:10,337 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:47:10,351 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:47:58,224 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:47:58,717 INFO werkzeug  * Restarting with stat
+2025-09-28 00:48:02,584 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:48:03,067 INFO __main__ Groq API call successful
+2025-09-28 00:48:03,070 INFO __main__ Groq API connection successful
+2025-09-28 00:48:03,071 INFO __main__ Groq Available: True
+2025-09-28 00:48:03,071 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:48:03,071 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:48:03,090 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:48:03,604 INFO __main__ Groq API call successful
+2025-09-28 00:48:03,608 INFO __main__ Groq API connection successful
+2025-09-28 00:48:03,609 INFO __main__ Groq Available: True
+2025-09-28 00:48:03,609 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:48:03,610 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:48:03,621 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:48:03,621 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:48:03,621 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:48:03,622 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:48:03,622 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:48:03,622 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:48:03,650 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:49:00,846 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:49:01,240 INFO werkzeug  * Restarting with stat
+2025-09-28 00:49:04,516 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:04,983 INFO __main__ Groq API call successful
+2025-09-28 00:49:04,985 INFO __main__ Groq API connection successful
+2025-09-28 00:49:04,986 INFO __main__ Groq Available: True
+2025-09-28 00:49:04,986 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:04,986 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:05,000 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:05,455 INFO __main__ Groq API call successful
+2025-09-28 00:49:05,457 INFO __main__ Groq API connection successful
+2025-09-28 00:49:05,457 INFO __main__ Groq Available: True
+2025-09-28 00:49:05,458 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:05,458 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:05,464 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:49:05,464 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:49:05,464 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:49:05,464 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:49:05,464 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:49:05,465 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:49:05,481 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:49:34,415 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:34,841 INFO __main__ Groq API call successful
+2025-09-28 00:49:34,843 INFO __main__ Groq API connection successful
+2025-09-28 00:49:34,844 INFO __main__ Groq Available: True
+2025-09-28 00:49:34,844 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:34,844 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:34,851 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:35,354 INFO __main__ Groq API call successful
+2025-09-28 00:49:35,356 INFO __main__ Groq API connection successful
+2025-09-28 00:49:35,356 INFO __main__ Groq Available: True
+2025-09-28 00:49:35,356 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:35,356 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:35,362 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:49:35,363 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:49:35,363 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:49:35,363 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:49:35,363 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:49:35,363 INFO werkzeug  * Restarting with stat
+2025-09-28 00:49:36,769 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:37,153 INFO __main__ Groq API call successful
+2025-09-28 00:49:37,156 INFO __main__ Groq API connection successful
+2025-09-28 00:49:37,156 INFO __main__ Groq Available: True
+2025-09-28 00:49:37,156 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:37,156 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:37,164 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:49:37,607 INFO __main__ Groq API call successful
+2025-09-28 00:49:37,610 INFO __main__ Groq API connection successful
+2025-09-28 00:49:37,610 INFO __main__ Groq Available: True
+2025-09-28 00:49:37,610 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:49:37,610 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:49:37,616 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:49:37,616 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:49:37,617 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:49:37,617 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:49:37,617 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:49:37,617 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:49:37,631 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:50:08,498 INFO __main__ User demo_provider logged in successfully
+2025-09-28 00:50:09,045 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:10,374 INFO __main__ Groq API call successful
+2025-09-28 00:50:10,376 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:50:11,874 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:13,243 INFO __main__ Groq API call successful
+2025-09-28 00:50:13,245 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:50:14,710 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:15,895 INFO __main__ Groq API call successful
+2025-09-28 00:50:15,897 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:50:17,402 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:18,716 INFO __main__ Groq API call successful
+2025-09-28 00:50:18,718 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:50:20,724 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:21,582 INFO __main__ Groq API call successful
+2025-09-28 00:50:28,112 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:50:29,242 INFO __main__ Groq API call successful
+2025-09-28 00:50:29,244 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:50:31,768 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-28 00:50:31,944 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:50:31,947 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:50:31,947 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:50:34,498 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-28 00:50:35,615 INFO __main__ Groq API call successful
+2025-09-28 00:50:35,618 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:50:38,144 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-28 00:50:38,314 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:50:38,317 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:50:38,317 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:55:12,895 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 00:55:13,374 INFO werkzeug  * Restarting with stat
+2025-09-28 00:55:16,020 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:16,860 INFO __main__ Groq API call successful
+2025-09-28 00:55:16,866 INFO __main__ Groq API connection successful
+2025-09-28 00:55:16,866 INFO __main__ Groq Available: True
+2025-09-28 00:55:16,866 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:16,867 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:16,882 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:17,372 INFO __main__ Groq API call successful
+2025-09-28 00:55:17,375 INFO __main__ Groq API connection successful
+2025-09-28 00:55:17,375 INFO __main__ Groq Available: True
+2025-09-28 00:55:17,375 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:17,375 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:17,380 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:55:17,381 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:55:17,381 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:55:17,381 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:55:17,381 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:55:17,381 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:55:17,396 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:55:41,986 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:55:42,503 INFO werkzeug  * Restarting with stat
+2025-09-28 00:55:44,636 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:45,125 INFO __main__ Groq API call successful
+2025-09-28 00:55:45,128 INFO __main__ Groq API connection successful
+2025-09-28 00:55:45,128 INFO __main__ Groq Available: True
+2025-09-28 00:55:45,128 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:45,128 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:45,141 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:45,531 INFO __main__ Groq API call successful
+2025-09-28 00:55:45,533 INFO __main__ Groq API connection successful
+2025-09-28 00:55:45,533 INFO __main__ Groq Available: True
+2025-09-28 00:55:45,533 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:45,533 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:45,538 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:55:45,538 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:55:45,538 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:55:45,538 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:55:45,538 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:55:45,539 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:55:45,551 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:55:55,746 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 00:55:56,045 INFO werkzeug  * Restarting with stat
+2025-09-28 00:55:58,771 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:59,356 INFO __main__ Groq API call successful
+2025-09-28 00:55:59,358 INFO __main__ Groq API connection successful
+2025-09-28 00:55:59,358 INFO __main__ Groq Available: True
+2025-09-28 00:55:59,358 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:59,358 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:59,374 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:55:59,870 INFO __main__ Groq API call successful
+2025-09-28 00:55:59,873 INFO __main__ Groq API connection successful
+2025-09-28 00:55:59,873 INFO __main__ Groq Available: True
+2025-09-28 00:55:59,873 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:55:59,873 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:55:59,884 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:55:59,884 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:55:59,885 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:55:59,885 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:55:59,885 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:55:59,885 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:55:59,907 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:56:13,939 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:14,409 INFO __main__ Groq API call successful
+2025-09-28 00:56:14,411 INFO __main__ Groq API connection successful
+2025-09-28 00:56:14,411 INFO __main__ Groq Available: True
+2025-09-28 00:56:14,411 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:56:14,411 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:56:14,419 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:14,817 INFO __main__ Groq API call successful
+2025-09-28 00:56:14,819 INFO __main__ Groq API connection successful
+2025-09-28 00:56:14,819 INFO __main__ Groq Available: True
+2025-09-28 00:56:14,819 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:56:14,819 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:56:14,824 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:56:14,825 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:56:14,825 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:56:14,825 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:56:14,825 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:56:14,825 INFO werkzeug  * Restarting with stat
+2025-09-28 00:56:16,398 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:16,815 INFO __main__ Groq API call successful
+2025-09-28 00:56:16,817 INFO __main__ Groq API connection successful
+2025-09-28 00:56:16,817 INFO __main__ Groq Available: True
+2025-09-28 00:56:16,817 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:56:16,817 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:56:16,825 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:17,481 INFO __main__ Groq API call successful
+2025-09-28 00:56:17,484 INFO __main__ Groq API connection successful
+2025-09-28 00:56:17,485 INFO __main__ Groq Available: True
+2025-09-28 00:56:17,485 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 00:56:17,485 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 00:56:17,492 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 00:56:17,492 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 00:56:17,492 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 00:56:17,492 INFO __main__ Authentication: Bearer token required
+2025-09-28 00:56:17,492 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 00:56:17,492 WARNING werkzeug  * Debugger is active!
+2025-09-28 00:56:17,510 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 00:56:42,740 INFO __main__ User demo_provider logged in successfully
+2025-09-28 00:56:43,235 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:44,703 INFO __main__ Groq API call successful
+2025-09-28 00:56:44,705 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:56:46,188 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:47,586 INFO __main__ Groq API call successful
+2025-09-28 00:56:47,588 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:56:49,091 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:50,400 INFO __main__ Groq API call successful
+2025-09-28 00:56:50,402 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:56:51,897 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:53,322 INFO __main__ Groq API call successful
+2025-09-28 00:56:53,325 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 00:56:55,331 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:56:56,395 INFO __main__ Groq API call successful
+2025-09-28 00:57:03,032 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 00:57:04,281 INFO __main__ Groq API call successful
+2025-09-28 00:57:04,285 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:57:06,800 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-28 00:57:06,966 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:57:06,968 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:57:06,968 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:57:09,525 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-28 00:57:10,724 INFO __main__ Groq API call successful
+2025-09-28 00:57:10,727 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 00:57:13,219 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-28 00:57:13,394 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 00:57:13,398 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 00:57:13,398 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 01:02:00,243 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_links.py', reloading
+2025-09-28 01:02:01,010 INFO werkzeug  * Restarting with stat
+2025-09-28 01:02:04,442 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:02:05,048 INFO __main__ Groq API call successful
+2025-09-28 01:02:05,050 INFO __main__ Groq API connection successful
+2025-09-28 01:02:05,051 INFO __main__ Groq Available: True
+2025-09-28 01:02:05,051 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:02:05,051 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:02:05,063 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:02:05,599 INFO __main__ Groq API call successful
+2025-09-28 01:02:05,601 INFO __main__ Groq API connection successful
+2025-09-28 01:02:05,601 INFO __main__ Groq Available: True
+2025-09-28 01:02:05,601 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:02:05,601 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:02:05,607 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:02:05,607 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:02:05,607 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:02:05,607 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:02:05,607 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:02:05,607 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:02:05,622 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:02:50,765 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:02:51,207 INFO werkzeug  * Restarting with stat
+2025-09-28 01:02:53,764 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:02:54,256 INFO __main__ Groq API call successful
+2025-09-28 01:02:54,258 INFO __main__ Groq API connection successful
+2025-09-28 01:02:54,258 INFO __main__ Groq Available: True
+2025-09-28 01:02:54,259 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:02:54,259 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:02:54,270 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:02:54,689 INFO __main__ Groq API call successful
+2025-09-28 01:02:54,691 INFO __main__ Groq API connection successful
+2025-09-28 01:02:54,691 INFO __main__ Groq Available: True
+2025-09-28 01:02:54,691 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:02:54,691 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:02:54,697 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:02:54,697 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:02:54,697 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:02:54,698 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:02:54,698 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:02:54,698 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:02:54,712 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:03:18,117 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:03:18,372 INFO werkzeug  * Restarting with stat
+2025-09-28 01:03:20,303 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:20,735 INFO __main__ Groq API call successful
+2025-09-28 01:03:20,738 INFO __main__ Groq API connection successful
+2025-09-28 01:03:20,738 INFO __main__ Groq Available: True
+2025-09-28 01:03:20,738 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:20,738 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:20,748 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:21,452 INFO __main__ Groq API call successful
+2025-09-28 01:03:21,459 INFO __main__ Groq API connection successful
+2025-09-28 01:03:21,460 INFO __main__ Groq Available: True
+2025-09-28 01:03:21,460 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:21,460 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:21,475 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:03:21,475 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:03:21,476 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:03:21,476 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:03:21,476 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:03:21,477 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:03:21,512 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:03:30,990 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:31,503 INFO __main__ Groq API call successful
+2025-09-28 01:03:31,505 INFO __main__ Groq API connection successful
+2025-09-28 01:03:31,505 INFO __main__ Groq Available: True
+2025-09-28 01:03:31,505 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:31,506 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:31,513 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:31,892 INFO __main__ Groq API call successful
+2025-09-28 01:03:31,894 INFO __main__ Groq API connection successful
+2025-09-28 01:03:31,894 INFO __main__ Groq Available: True
+2025-09-28 01:03:31,894 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:31,894 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:31,900 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:03:31,900 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:03:31,900 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:03:31,901 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:03:31,901 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:03:31,901 INFO werkzeug  * Restarting with stat
+2025-09-28 01:03:33,428 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:33,885 INFO __main__ Groq API call successful
+2025-09-28 01:03:33,888 INFO __main__ Groq API connection successful
+2025-09-28 01:03:33,888 INFO __main__ Groq Available: True
+2025-09-28 01:03:33,888 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:33,888 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:33,896 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:34,397 INFO __main__ Groq API call successful
+2025-09-28 01:03:34,399 INFO __main__ Groq API connection successful
+2025-09-28 01:03:34,399 INFO __main__ Groq Available: True
+2025-09-28 01:03:34,399 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:03:34,399 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:03:34,405 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:03:34,405 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:03:34,405 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:03:34,406 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:03:34,406 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:03:34,406 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:03:34,419 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:03:43,746 INFO __main__ User demo_provider logged in successfully
+2025-09-28 01:03:44,247 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:03:45,560 INFO __main__ Groq API call successful
+2025-09-28 01:03:45,562 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 01:05:48,423 INFO __main__ User demo_provider logged in successfully
+2025-09-28 01:05:48,944 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:05:50,178 INFO __main__ Groq API call successful
+2025-09-28 01:05:50,180 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 01:05:51,685 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:05:53,147 INFO __main__ Groq API call successful
+2025-09-28 01:05:53,150 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 01:05:54,662 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:05:55,817 INFO __main__ Groq API call successful
+2025-09-28 01:05:55,819 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 01:05:57,312 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:05:58,562 INFO __main__ Groq API call successful
+2025-09-28 01:05:58,565 INFO __main__ Literature search by demo_provider for Cardiology
+2025-09-28 01:06:00,575 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:06:01,442 INFO __main__ Groq API call successful
+2025-09-28 01:06:07,992 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:06:09,327 INFO __main__ Groq API call successful
+2025-09-28 01:06:09,330 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 01:06:11,848 INFO __main__ Calling Groq API with model: mixtral-8x7b-32768
+2025-09-28 01:06:12,006 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 01:06:12,009 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 01:06:12,009 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 01:06:14,498 INFO __main__ Calling Groq API with model: gemma2-9b-it
+2025-09-28 01:06:15,574 INFO __main__ Groq API call successful
+2025-09-28 01:06:15,576 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 01:06:18,083 INFO __main__ Calling Groq API with model: llama-3.1-70b-versatile
+2025-09-28 01:06:18,251 ERROR __main__ Groq API error: 400 - {"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2025-09-28 01:06:18,253 WARNING __main__ Groq analysis failed: Groq API returned no response
+2025-09-28 01:06:18,253 INFO __main__ Literature search by demo_provider for Oncology
+2025-09-28 01:09:01,747 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:09:02,012 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:03,946 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:04,431 INFO __main__ Groq API call successful
+2025-09-28 01:09:04,433 INFO __main__ Groq API connection successful
+2025-09-28 01:09:04,433 INFO __main__ Groq Available: True
+2025-09-28 01:09:04,433 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:04,433 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:04,446 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:04,840 INFO __main__ Groq API call successful
+2025-09-28 01:09:04,842 INFO __main__ Groq API connection successful
+2025-09-28 01:09:04,842 INFO __main__ Groq Available: True
+2025-09-28 01:09:04,842 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:04,842 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:04,848 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:04,848 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:04,848 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:04,849 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:04,849 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:04,849 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:04,864 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:09:21,156 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:09:21,341 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:23,183 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:23,580 INFO __main__ Groq API call successful
+2025-09-28 01:09:23,583 INFO __main__ Groq API connection successful
+2025-09-28 01:09:23,583 INFO __main__ Groq Available: True
+2025-09-28 01:09:23,583 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:23,583 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:23,596 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:24,094 INFO __main__ Groq API call successful
+2025-09-28 01:09:24,096 INFO __main__ Groq API connection successful
+2025-09-28 01:09:24,097 INFO __main__ Groq Available: True
+2025-09-28 01:09:24,097 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:24,097 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:24,102 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:24,102 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:24,103 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:24,103 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:24,103 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:24,103 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:24,117 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:09:31,263 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:09:31,440 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:33,103 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:33,491 INFO __main__ Groq API call successful
+2025-09-28 01:09:33,494 INFO __main__ Groq API connection successful
+2025-09-28 01:09:33,494 INFO __main__ Groq Available: True
+2025-09-28 01:09:33,494 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:33,494 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:33,506 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:34,061 INFO __main__ Groq API call successful
+2025-09-28 01:09:34,063 INFO __main__ Groq API connection successful
+2025-09-28 01:09:34,064 INFO __main__ Groq Available: True
+2025-09-28 01:09:34,064 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:34,064 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:34,069 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:34,070 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:34,070 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:34,070 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:34,070 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:34,070 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:34,087 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:09:42,261 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:09:42,444 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:44,335 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:44,779 INFO __main__ Groq API call successful
+2025-09-28 01:09:44,781 INFO __main__ Groq API connection successful
+2025-09-28 01:09:44,781 INFO __main__ Groq Available: True
+2025-09-28 01:09:44,781 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:44,781 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:44,795 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:45,171 INFO __main__ Groq API call successful
+2025-09-28 01:09:45,173 INFO __main__ Groq API connection successful
+2025-09-28 01:09:45,173 INFO __main__ Groq Available: True
+2025-09-28 01:09:45,173 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:45,173 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:45,179 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:45,179 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:45,179 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:45,179 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:45,179 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:45,180 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:45,194 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:09:49,289 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:09:49,478 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:51,402 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:51,843 INFO __main__ Groq API call successful
+2025-09-28 01:09:51,845 INFO __main__ Groq API connection successful
+2025-09-28 01:09:51,845 INFO __main__ Groq Available: True
+2025-09-28 01:09:51,845 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:51,846 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:51,855 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:52,263 INFO __main__ Groq API call successful
+2025-09-28 01:09:52,265 INFO __main__ Groq API connection successful
+2025-09-28 01:09:52,265 INFO __main__ Groq Available: True
+2025-09-28 01:09:52,266 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:52,266 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:52,271 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:52,271 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:52,272 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:52,272 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:52,272 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:52,272 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:52,286 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:09:55,369 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:09:55,583 INFO werkzeug  * Restarting with stat
+2025-09-28 01:09:57,110 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:57,494 INFO __main__ Groq API call successful
+2025-09-28 01:09:57,496 INFO __main__ Groq API connection successful
+2025-09-28 01:09:57,497 INFO __main__ Groq Available: True
+2025-09-28 01:09:57,497 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:57,497 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:57,504 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:09:57,885 INFO __main__ Groq API call successful
+2025-09-28 01:09:57,887 INFO __main__ Groq API connection successful
+2025-09-28 01:09:57,887 INFO __main__ Groq Available: True
+2025-09-28 01:09:57,887 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:09:57,887 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:09:57,893 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:09:57,893 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:09:57,894 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:09:57,894 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:09:57,894 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:09:57,894 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:09:57,912 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:04,045 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:04,279 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:05,744 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:06,123 INFO __main__ Groq API call successful
+2025-09-28 01:10:06,126 INFO __main__ Groq API connection successful
+2025-09-28 01:10:06,126 INFO __main__ Groq Available: True
+2025-09-28 01:10:06,126 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:06,126 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:06,134 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:06,500 INFO __main__ Groq API call successful
+2025-09-28 01:10:06,502 INFO __main__ Groq API connection successful
+2025-09-28 01:10:06,502 INFO __main__ Groq Available: True
+2025-09-28 01:10:06,502 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:06,502 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:06,508 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:06,508 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:06,508 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:06,509 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:06,509 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:06,509 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:06,526 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:10,625 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:10,807 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:12,584 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:13,042 INFO __main__ Groq API call successful
+2025-09-28 01:10:13,045 INFO __main__ Groq API connection successful
+2025-09-28 01:10:13,045 INFO __main__ Groq Available: True
+2025-09-28 01:10:13,045 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:13,046 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:13,066 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:13,467 INFO __main__ Groq API call successful
+2025-09-28 01:10:13,470 INFO __main__ Groq API connection successful
+2025-09-28 01:10:13,470 INFO __main__ Groq Available: True
+2025-09-28 01:10:13,470 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:13,470 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:13,476 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:13,476 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:13,476 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:13,476 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:13,476 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:13,477 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:13,490 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:18,616 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:18,869 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:22,938 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:23,515 INFO __main__ Groq API call successful
+2025-09-28 01:10:23,538 INFO __main__ Groq API connection successful
+2025-09-28 01:10:23,538 INFO __main__ Groq Available: True
+2025-09-28 01:10:23,539 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:23,539 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:23,561 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:23,998 INFO __main__ Groq API call successful
+2025-09-28 01:10:24,000 INFO __main__ Groq API connection successful
+2025-09-28 01:10:24,000 INFO __main__ Groq Available: True
+2025-09-28 01:10:24,000 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:24,001 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:24,006 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:24,006 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:24,006 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:24,007 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:24,007 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:24,007 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:24,024 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:26,103 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:26,354 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:28,377 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:29,147 INFO __main__ Groq API call successful
+2025-09-28 01:10:29,151 INFO __main__ Groq API connection successful
+2025-09-28 01:10:29,151 INFO __main__ Groq Available: True
+2025-09-28 01:10:29,151 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:29,152 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:29,168 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:29,569 INFO __main__ Groq API call successful
+2025-09-28 01:10:29,572 INFO __main__ Groq API connection successful
+2025-09-28 01:10:29,573 INFO __main__ Groq Available: True
+2025-09-28 01:10:29,573 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:29,574 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:29,585 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:29,585 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:29,586 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:29,586 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:29,586 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:29,586 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:29,635 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:31,740 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:32,120 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:34,479 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:34,909 INFO __main__ Groq API call successful
+2025-09-28 01:10:34,911 INFO __main__ Groq API connection successful
+2025-09-28 01:10:34,912 INFO __main__ Groq Available: True
+2025-09-28 01:10:34,912 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:34,912 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:34,921 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:35,331 INFO __main__ Groq API call successful
+2025-09-28 01:10:35,333 INFO __main__ Groq API connection successful
+2025-09-28 01:10:35,333 INFO __main__ Groq Available: True
+2025-09-28 01:10:35,333 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:35,334 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:35,339 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:35,340 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:35,340 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:35,340 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:35,340 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:35,340 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:35,359 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:10:42,565 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/test_api.py', reloading
+2025-09-28 01:10:42,781 INFO werkzeug  * Restarting with stat
+2025-09-28 01:10:44,432 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:44,989 INFO __main__ Groq API call successful
+2025-09-28 01:10:44,993 INFO __main__ Groq API connection successful
+2025-09-28 01:10:44,993 INFO __main__ Groq Available: True
+2025-09-28 01:10:44,993 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:44,993 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:45,004 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:10:45,398 INFO __main__ Groq API call successful
+2025-09-28 01:10:45,401 INFO __main__ Groq API connection successful
+2025-09-28 01:10:45,402 INFO __main__ Groq Available: True
+2025-09-28 01:10:45,402 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:10:45,402 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:10:45,411 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:10:45,411 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:10:45,411 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:10:45,411 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:10:45,411 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:10:45,412 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:10:45,426 INFO werkzeug  * Debugger PIN: 243-558-706
+2025-09-28 01:12:22,473 INFO werkzeug  * Detected change in '/Users/andrx/Documents/VSCP/hcp-engagement-api/app.py', reloading
+2025-09-28 01:12:22,701 INFO werkzeug  * Restarting with stat
+2025-09-28 01:12:24,739 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:12:25,243 INFO __main__ Groq API call successful
+2025-09-28 01:12:25,245 INFO __main__ Groq API connection successful
+2025-09-28 01:12:25,245 INFO __main__ Groq Available: True
+2025-09-28 01:12:25,245 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:12:25,246 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:12:25,257 INFO __main__ Calling Groq API with model: llama-3.1-8b-instant
+2025-09-28 01:12:25,648 INFO __main__ Groq API call successful
+2025-09-28 01:12:25,650 INFO __main__ Groq API connection successful
+2025-09-28 01:12:25,650 INFO __main__ Groq Available: True
+2025-09-28 01:12:25,650 INFO __main__ Groq API Key: gsk_zvAVqG...
+2025-09-28 01:12:25,650 INFO __main__ Available Models: ['llama-3.1-8b-instant', 'llama-3.1-70b-versatile', 'llama3-groq-8b-8192-tool-use-preview', 'mixtral-8x7b-32768', 'gemma2-9b-it']
+2025-09-28 01:12:25,656 INFO __main__ Starting Groq-Powered HCP Engagement API v2.2
+2025-09-28 01:12:25,656 INFO __main__ AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)
+2025-09-28 01:12:25,656 INFO __main__ Smart Literature: AI-powered relevance analysis
+2025-09-28 01:12:25,656 INFO __main__ Authentication: Bearer token required
+2025-09-28 01:12:25,657 INFO __main__ WebSocket: Real-time notifications available
+2025-09-28 01:12:25,657 WARNING werkzeug  * Debugger is active!
+2025-09-28 01:12:25,671 INFO werkzeug  * Debugger PIN: 243-558-706
