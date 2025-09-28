@@ -7,6 +7,8 @@ Groq-Powered HCP Engagement API
 [![Flask](https://img.shields.io/badge/flask-2.3.3-orange.svg)](https://flask.palletsprojects.com)
 [![Groq AI](https://img.shields.io/badge/AI-Groq%20Powered-purple.svg)](https://groq.com)
 
+#### created for HackGT 12
+
 ## Description:
 
 A comprehensive AI-powered Healthcare Provider (HCP) engagement API that provides intelligent medical literature analysis, risk prediction, and population health insights powered by ultra-fast Groq AI models. Transform clinical decision-making with evidence-based recommendations in seconds.

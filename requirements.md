@@ -42,7 +42,9 @@ it will say ModuleNotFoundError: No Module named '{package}'
 
 for any packages that show as not yet installed, just run:
 
+```
 pip install {package}
+```
 
 likely packages that were not preinstalled: 
 - flask
@@ -55,9 +57,9 @@ likely packages that were not preinstalled:
 - pandas
 - bcrypt
 
-continue to repeat these steps running `python3 app.py`
+continue to repeat these steps running `python3 app.py` and finding which packages are missing until `python3 app.py' runs smoothly
 
-for some packages, they will have version mismatching, so you need to install the exact version that was listed in requirements.txt
+for some packages, they will have version mismatching, and you will find out after you run 'python3 app.py' and errors appear, so you need to install the exact version that was listed in requirements.txt
 
 this likely includes: 
 - bcrypt
