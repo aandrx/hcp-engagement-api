@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Quick test script to verify literature search fix
 """
@@ -10,7 +9,7 @@ BASE_URL = "http://localhost:5000"
 
 def test_literature_search():
     """Test literature search endpoint with proper error handling"""
-    print("🧪 Testing Literature Search Fix...")
+    print("Testing Literature Search Fix...")
     
     # First, get authentication token
     login_data = {
@@ -24,12 +23,12 @@ def test_literature_search():
         response = requests.post(f"{BASE_URL}/auth/login", json=login_data, timeout=10)
         
         if response.status_code != 200:
-            print(f"❌ Login failed: {response.status_code}")
+            print(f"Login failed: {response.status_code}")
             print(f"Response: {response.text}")
             return False
             
         token = response.json()['access_token']
-        print("✅ Login successful")
+        print("Login successful")
         
         # Test literature search
         print("2. Testing literature search...")
@@ -52,7 +51,7 @@ def test_literature_search():
         print(f"Status Code: {response.status_code}")
         
         if response.status_code == 200:
-            print("✅ Literature search successful!")
+            print("Literature search successful!")
             data = response.json()
             print(f"Source: {data.get('source', 'Unknown')}")
             studies = data.get('studies', [])
@@ -70,24 +69,24 @@ def test_literature_search():
             
             return True
         else:
-            print(f"❌ Literature search failed: {response.status_code}")
+            print(f"Literature search failed: {response.status_code}")
             print(f"Response: {response.text}")
             return False
             
     except requests.exceptions.ConnectionError:
-        print("❌ Cannot connect to API server. Is it running on localhost:5000?")
+        print("Cannot connect to API server. Is it running on localhost:5000?")
         print("   Start the server with: python app.py")
         return False
     except requests.exceptions.Timeout:
-        print("❌ Request timed out. Server might be overloaded.")
+        print("Request timed out. Server might be overloaded.")
         return False
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"Unexpected error: {e}")
         return False
 
 if __name__ == "__main__":
     success = test_literature_search()
     if success:
-        print("\n🎉 Literature search is working correctly!")
+        print("\nLiterature search is working correctly!")
     else:
-        print("\n💥 Literature search still has issues.")
+        print("\nLiterature search still has issues.")
