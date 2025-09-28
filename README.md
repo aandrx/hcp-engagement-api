@@ -8,6 +8,7 @@ Groq-Powered HCP Engagement API
 [![Groq AI](https://img.shields.io/badge/AI-Groq%20Powered-purple.svg)](https://groq.com)
 
 #### created for HackGT 12
+#### build the demo here: [demo repo](https://github.com/aandrx/demo-hcp-engagement-api)
 
 ## Description:
 
