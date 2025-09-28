@@ -136,14 +136,15 @@ celerybeat.pid
 
 # Environments
 .env
-.env.*
-.envrc
 .env.local
 .env.development
 .env.production
 .env.staging
 .env.test
 .env.backup
+.env.*.secret
+.env.*.private
+.envrc
 .venv
 venv/
 env/
