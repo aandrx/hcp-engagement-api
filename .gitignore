@@ -135,7 +135,15 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.env
+.env.*
 .envrc
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
+.env.backup
 .venv
 venv/
 env/
@@ -198,6 +206,84 @@ cython_debug/
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
+
+# ========================================
+# 🔒 SECURITY - SENSITIVE DATA PROTECTION
+# ========================================
+
+# API Keys and Secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+keys/
+
+# Configuration files with sensitive data
+config.json
+config.yaml
+config.yml
+secrets.json
+secrets.yaml
+secrets.yml
+
+# Database files and backups
+*.db
+*.sqlite
+*.sqlite3
+database.json
+db_backup.*
+*.dump
+*.sql.gz
+
+# Log files that may contain sensitive information
+*.log
+logs/
+log/
+app.log
+api.log
+error.log
+access.log
+
+# Authentication and session data
+auth.json
+session.json
+tokens.json
+jwt_tokens.*
+
+# Cloud provider credentials
+.aws/
+.gcp/
+.azure/
+gcloud/
+
+# Docker secrets
+docker-compose.override.yml
+.dockerignore
+
+# Backup files that might contain sensitive data  
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+# IDE and editor files that might store sensitive data
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 .cursorindexingignore
 
 # Marimo
