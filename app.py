@@ -40,14 +40,47 @@ if groq_api_key:
 else:
     print("WARNING: No Groq API key found in environment variables")
 
-# Security-focused CORS
-CORS(app, resources={
-    r"/*": {
-        "origins": os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(','),
-        "methods": ["GET", "POST", "PUT", "DELETE"],
-        "allow_headers": ["Authorization", "Content-Type"]
+# Enhanced CORS configuration for open-source frontend compatibility
+allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173').split(',')
+
+CORS(app, 
+    resources={
+        r"/*": {
+            "origins": allowed_origins,
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Authorization", "Content-Type", "X-Requested-With"],
+            "supports_credentials": False,
+            "expose_headers": ["Content-Type", "Authorization"],
+            "max_age": 600  # Cache preflight requests for 10 minutes
+        }
     }
-})
+)
+
+# Add global OPTIONS handler for preflight requests
+@app.before_request
+def handle_preflight():
+    if request.method == "OPTIONS":
+        response = jsonify({"status": "preflight"})
+        response.headers.add("Access-Control-Allow-Origin", request.headers.get('Origin', '*'))
+        response.headers.add("Access-Control-Allow-Headers", "Authorization, Content-Type")
+        response.headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+        return response
+
+# Add after_request handler for CORS headers
+@app.after_request
+def after_request(response):
+    origin = request.headers.get('Origin')
+    if origin and origin in allowed_origins:
+        response.headers.add('Access-Control-Allow-Origin', origin)
+    else:
+        # For development, allow the request origin if no specific origins match
+        response.headers.add('Access-Control-Allow-Origin', request.headers.get('Origin', allowed_origins[0] if allowed_origins else '*'))
+    
+    response.headers.add('Access-Control-Allow-Headers', 'Authorization, Content-Type')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+    response.headers.add('Access-Control-Allow-Credentials', 'false')
+    response.headers.add('Access-Control-Max-Age', '600')
+    return response
 
 # Setup logging (open-source friendly)
 if not os.path.exists('logs'):
@@ -82,7 +115,7 @@ api = Api(app,
 
 # Initialize WebSocket for real-time features
 socketio = SocketIO(app, 
-    cors_allowed_origins=os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000').split(','),
+    cors_allowed_origins=allowed_origins,
     logger=logger,
     engineio_logger=False
 )
