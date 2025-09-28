@@ -108,7 +108,7 @@ def test_groq_literature_search(token):
     all_successful = True
     
     for max_results in test_limits:
-        print(f"\n🧪 Testing with max_results = {max_results}")
+        print(f"\nTesting with max_results = {max_results}")
         print("-" * 50)
         
         payload = base_payload.copy()
@@ -120,25 +120,25 @@ def test_groq_literature_search(token):
             
             if response.status_code == 200:
                 data = response.json()
-                print("✅ Search successful!")
+                print("Search successful!")
                 
                 # Show search metadata
                 metadata = data.get('search_metadata', {})
                 requested = metadata.get('max_results_requested', 'N/A')
                 returned = metadata.get('total_results_returned', 'N/A')
-                print(f"📊 Results: Requested {requested}, Returned {returned}")
+                print(f"Results: Requested {requested}, Returned {returned}")
                 
                 # Show AI capabilities
                 ai_caps = data.get('ai_capabilities', {})
-                print(f"🤖 Groq Available: {ai_caps.get('groq_available', False)}")
+                print(f"Groq Available: {ai_caps.get('groq_available', False)}")
                 
                 # Show studies count and sample
                 studies = data.get('studies', [])
-                print(f"📚 Studies Found: {len(studies)}")
+                print(f"Studies Found: {len(studies)}")
                 
                 # Show first 2 studies as sample
                 if studies:
-                    print("\n🔍 Sample Studies:")
+                    print("\nSample Studies:")
                     for i, study in enumerate(studies[:2]):
                         print(f" {i+1}. {study.get('title', 'No title')[:60]}...")
                         print(f"    Journal: {study.get('journal', 'Unknown')}")
@@ -149,26 +149,26 @@ def test_groq_literature_search(token):
                 # Show AI analysis summary
                 ai_analysis = data.get('ai_analysis')
                 if ai_analysis:
-                    print(f"🧠 AI Confidence: {ai_analysis.get('confidence_score', 'N/A')}")
+                    print(f"AI Confidence: {ai_analysis.get('confidence_score', 'N/A')}")
                     summary = ai_analysis.get('summary', '')[:100] + "..." if ai_analysis.get('summary') else "No summary"
-                    print(f"📋 AI Summary: {summary}")
+                    print(f"AI Summary: {summary}")
                 
-                print("✅ Limit test passed")
+                print("Limit test passed")
                 
             else:
-                print(f"❌ Search failed with status {response.status_code}")
+                print(f"Search failed with status {response.status_code}")
                 print(f"Response: {response.text}")
                 all_successful = False
                 
         except Exception as e:
-            print(f"❌ Error testing limit {max_results}: {e}")
+            print(f"Error testing limit {max_results}: {e}")
             all_successful = False
         
         print("-" * 50)
         time.sleep(1)  # Brief pause between tests
     
     # Test default limit (no max_results specified)
-    print(f"\n🧪 Testing with DEFAULT limit (no max_results specified)")
+    print(f"\nTesting with DEFAULT limit (no max_results specified)")
     print("-" * 50)
     
     try:
@@ -184,15 +184,15 @@ def test_groq_literature_search(token):
             requested = metadata.get('max_results_requested', 'N/A')
             returned = metadata.get('total_results_returned', 'N/A')
             
-            print("✅ Default limit test successful!")
-            print(f"📊 Default Results: Requested {requested}, Returned {returned}")
-            print("✅ Default should be 99 based on API configuration")
+            print("Default limit test successful!")
+            print(f"Default Results: Requested {requested}, Returned {returned}")
+            print("Default should be 99 based on API configuration")
         else:
-            print(f"❌ Default limit test failed")
+            print(f"Default limit test failed")
             all_successful = False
             
     except Exception as e:
-        print(f"❌ Error testing default limit: {e}")
+        print(f"Error testing default limit: {e}")
         all_successful = False
     
     return all_successful
