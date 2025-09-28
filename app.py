@@ -114,7 +114,8 @@ literature_search_model = api.model('LiteratureSearch', {
     'patient_conditions': fields.List(fields.String),
     'max_results': fields.Integer(default=10),
     'enable_ai_analysis': fields.Boolean(default=True),
-    'ai_model': fields.String(default='llama-3.1-8b-instant', description='Groq model to use')
+    'ai_model': fields.String(default='llama-3.1-8b-instant', description='Groq model to use'),
+    'response_format': fields.String(default='detailed', description='compact|detailed')
 })
 
 # Analytics Models (Simplified)
@@ -129,6 +130,11 @@ ai_analysis_model = api.model('AIAnalysis', {
     'context': fields.Raw(description='Additional context for analysis'),
     'model': fields.String(default='llama-3.1-8b-instant', description='Groq model to use')
 })
+
+population_analysis_model = api.model('PopulationAnalysis', {
+    'patients': fields.List(fields.Raw, required=True, description='List of patient data objects')
+})
+
 
 # ========== SERVICE CLASS DEFINITIONS ==========
 
@@ -346,39 +352,128 @@ class AnalyticsService:
             return 'low'
     
     def population_health_trends(self, patient_data_list: List[Dict]) -> Dict:
-        """Analyze population health trends"""
+        """Analyze population health trends with enhanced insights"""
         try:
             if not patient_data_list:
                 return {'error': 'No patient data provided'}
             
-            # Convert to DataFrame for analysis
-            df = pd.DataFrame(patient_data_list)
+            # Preprocess data - convert lists to strings for DataFrame compatibility
+            processed_patients = []
+            for patient in patient_data_list:
+                processed_patient = patient.copy()
+                # Convert list fields to strings for DataFrame compatibility
+                if 'conditions' in processed_patient and isinstance(processed_patient['conditions'], list):
+                    processed_patient['conditions'] = ', '.join(processed_patient['conditions'])
+                processed_patients.append(processed_patient)
             
+            # Convert to DataFrame for analysis
+            df = pd.DataFrame(processed_patients)
+            
+            # Calculate risk levels for all patients
+            risk_levels = []
+            risk_scores = []
+            
+            for _, patient in df.iterrows():
+                # Convert back to dict for risk prediction
+                patient_dict = patient.to_dict()
+                risk_pred = self.predict_risk(patient_dict)
+                risk_levels.append(risk_pred.get('risk_level', 'low'))
+                risk_scores.append(risk_pred.get('risk_score', 0))
+            
+            # Enhanced trends analysis with safe data access
             trends = {
-                'average_age': round(df['age'].mean(), 1) if 'age' in df.columns else 0,
+                'population_size': len(patient_data_list),
+                'average_age': round(df['age'].mean(), 1) if 'age' in df.columns and not df['age'].empty else 0,
+                'average_risk_score': round(np.mean(risk_scores), 2) if risk_scores else 0,
                 'common_conditions': self._find_common_conditions(df),
-                'risk_distribution': self._calculate_risk_distribution(df),
-                'timestamp': datetime.utcnow().isoformat()
+                'risk_distribution': pd.Series(risk_levels).value_counts().to_dict(),
+                'age_groups': self._analyze_age_groups(df),
+                'risk_factors_prevalence': self._analyze_risk_factors(df),
+                'timestamp': datetime.utcnow().isoformat(),
+                'analysis_metadata': {
+                    'method': 'statistical_analysis',
+                    'confidence': 'high',
+                    'data_quality': 'good' if len(patient_data_list) >= 3 else 'limited'
+                }
             }
             
             return trends
             
         except Exception as e:
             logger.error(f"Population analysis error: {e}")
-            return {'error': 'Population analysis unavailable'}
-    
-    def _find_common_conditions(self, df: pd.DataFrame) -> List[Dict]:
-        """Find most common conditions in population"""
+            import traceback
+            logger.error(traceback.format_exc())
+            return {'error': f'Population analysis unavailable: {str(e)}'}
+
+    def _analyze_age_groups(self, df: pd.DataFrame) -> Dict:
+        """Analyze age distribution across population"""
+        if 'age' not in df.columns:
+            return {}
+        
+        age_groups = {
+            'young_adult': len(df[(df['age'] >= 18) & (df['age'] < 40)]),
+            'middle_aged': len(df[(df['age'] >= 40) & (df['age'] < 65)]),
+            'senior': len(df[df['age'] >= 65])
+        }
+        return age_groups
+
+    def _analyze_risk_factors(self, df: pd.DataFrame) -> Dict:
+        """Analyze prevalence of common risk factors"""
+        risk_factors = {}
+        
+        # Check for common risk factor indicators
+        risk_indicators = {
+            'hypertension': lambda row: row.get('systolic_bp', 0) > 140 if 'systolic_bp' in row else False,
+            'diabetes': lambda row: row.get('glucose', 0) > 126 if 'glucose' in row else False,
+            'hyperlipidemia': lambda row: row.get('cholesterol', 0) > 240 if 'cholesterol' in row else False,
+            'obesity': lambda row: row.get('bmi', 0) > 30 if 'bmi' in row else False,
+            'smoking': lambda row: row.get('smoking', 0) == 1 if 'smoking' in row else False
+        }
+        
+        for factor, check_func in risk_indicators.items():
+            count = sum(1 for _, row in df.iterrows() if check_func(row))
+            risk_factors[factor] = {
+                'count': count,
+                'prevalence': round((count / len(df)) * 100, 1) if len(df) > 0 else 0
+            }
+        
+        return risk_factors
+
+    def _find_common_conditions(self, df: pd.DataFrame) -> Dict:
+        """Find most common conditions in population with better error handling"""
         conditions = {}
         
-        # Look for condition indicators
-        for col in df.columns:
-            if any(keyword in col.lower() for keyword in ['condition', 'diagnosis', 'disease']):
-                if df[col].dtype == 'object':  # String columns
-                    common = df[col].value_counts().head(3).to_dict()
-                    conditions[col] = common
-        
-        return conditions
+        try:
+            # Look for condition indicators
+            for col in df.columns:
+                if any(keyword in col.lower() for keyword in ['condition', 'diagnosis', 'disease']):
+                    if df[col].dtype == 'object':  # String columns
+                        try:
+                            # Handle stringified lists or regular strings
+                            if df[col].str.contains(',').any():  # If it contains commas, treat as string list
+                                # Split comma-separated conditions and count individually
+                                all_conditions = []
+                                for conditions_str in df[col].dropna():
+                                    if isinstance(conditions_str, str):
+                                        condition_list = [cond.strip() for cond in conditions_str.split(',')]
+                                        all_conditions.extend(condition_list)
+                                
+                                if all_conditions:
+                                    condition_counts = pd.Series(all_conditions).value_counts().head(5).to_dict()
+                                    conditions[col] = condition_counts
+                            else:
+                                # Regular string column
+                                common = df[col].value_counts().head(3).to_dict()
+                                conditions[col] = common
+                        except Exception as e:
+                            logger.warning(f"Error processing conditions column {col}: {e}")
+                            continue
+            
+            return conditions
+            
+        except Exception as e:
+            logger.error(f"Error in common conditions analysis: {e}")
+            return {}
     
     def _calculate_risk_distribution(self, df: pd.DataFrame) -> Dict:
         """Calculate risk distribution across population"""
@@ -882,12 +977,53 @@ class LiteratureSearch(Resource):
             data.get('keywords', []),
             data.get('patient_conditions', []),
             data.get('enable_ai_analysis', True),
-            data.get('ai_model', 'llama-3.1-8b-instant')  # Changed from llama3-8b-8192
+            data.get('ai_model', 'llama-3.1-8b-instant')
         )
         
         logger.info(f"Literature search by {current_user['sub']} for {data.get('specialty')}")
         
-        return result
+        # Enhanced response structure
+        enhanced_response = {
+            'status': 'success',
+            'data': {
+                'studies': result.get('studies', []),
+                'ai_analysis': result.get('ai_analysis'),
+                'total_results': len(result.get('studies', []))
+            },
+            'metadata': {
+                'source': result.get('source', 'Fallback'),
+                'search_context': result.get('search_metadata', {}),
+                'ai_capabilities': result.get('ai_capabilities', {}),
+                'next_steps': [
+                    "Review full study texts for detailed methodology",
+                    "Consult clinical guidelines for application",
+                    "Consider patient-specific contraindications"
+                ]
+            }
+        }
+        
+        # Add format option
+        format_type = request.args.get('format', 'detailed')
+        if format_type == 'compact':
+            enhanced_response = self._compact_format(enhanced_response)
+        
+        return enhanced_response
+    
+    def _compact_format(self, response):
+        """Compact format for lighter payloads"""
+        compact_data = {
+            'status': response['status'],
+            'data': {
+                'study_count': len(response['data']['studies']),
+                'key_findings': response['data']['ai_analysis'].get('key_findings', [])[:3] if response['data']['ai_analysis'] else [],
+                'clinical_implications': response['data']['ai_analysis'].get('clinical_implications', [])[:2] if response['data']['ai_analysis'] else []
+            },
+            'metadata': {
+                'source': response['metadata']['source'],
+                'confidence': response['data']['ai_analysis'].get('confidence_score', 0) if response['data']['ai_analysis'] else 0
+            }
+        }
+        return compact_data
 
 # Groq AI Analysis endpoint
 @ns_ai.route('/analyze')
@@ -900,7 +1036,7 @@ class AIAnalysis(Resource):
         
         text = data.get('text', '')
         analysis_type = data.get('analysis_type', 'summary')
-        model = data.get('model', 'llama-3.1-8b-instant')  # Changed from llama3-8b-8192
+        model = data.get('model', 'llama-3.1-8b-instant')
         
         prompt = f"""
         Please analyze the following text for {analysis_type}:
@@ -915,19 +1051,35 @@ class AIAnalysis(Resource):
         try:
             analysis_result = ai_service._call_groq_api(prompt, model)
             
-            return {
-                'analysis': analysis_result,
-                'model_used': model,
-                'analysis_type': analysis_type,
-                'timestamp': datetime.utcnow().isoformat(),
-                'groq_available': ai_service.groq_available
+            response = {
+                'status': 'success',
+                'data': {
+                    'analysis': analysis_result,
+                    'analysis_type': analysis_type,
+                    'context': data.get('context', 'General analysis')
+                },
+                'metadata': {
+                    'model_used': model,
+                    'timestamp': datetime.utcnow().isoformat(),
+                    'groq_available': ai_service.groq_available,
+                    'next_steps': [
+                        "Review analysis with clinical team",
+                        "Validate findings against current guidelines",
+                        "Consider patient-specific factors"
+                    ]
+                }
             }
+            
+            return response
             
         except Exception as e:
             return {
-                'error': f'AI analysis failed: {str(e)}',
-                'groq_available': ai_service.groq_available,
-                'timestamp': datetime.utcnow().isoformat()
+                'status': 'error',
+                'message': f'AI analysis failed: {str(e)}',
+                'metadata': {
+                    'groq_available': ai_service.groq_available,
+                    'timestamp': datetime.utcnow().isoformat()
+                }
             }, 500
 
 # Analytics Predictions
@@ -967,13 +1119,30 @@ class PredictCost(Resource):
 
 @ns_analytics.route('/population-trends')
 class PopulationTrends(Resource):
+    @ns_analytics.expect(population_analysis_model)  # ADD THIS DECORATOR
     @token_required
     def post(self, current_user):
         """Analyze population health trends"""
         data = request.get_json()
         patient_data_list = data.get('patients', [])
         trends = analytics_service.population_health_trends(patient_data_list)
-        return trends
+        
+        # Enhanced response structure
+        enhanced_response = {
+            'status': 'success',
+            'data': trends,
+            'metadata': {
+                'population_size': len(patient_data_list),
+                'timestamp': datetime.utcnow().isoformat(),
+                'next_steps': [
+                    "Review high-risk patient subgroups",
+                    "Consider targeted interventions for prevalent conditions",
+                    "Monitor population health trends over time"
+                ]
+            }
+        }
+        
+        return enhanced_response
 
 # Groq Models endpoint
 @ns_ai.route('/models')
