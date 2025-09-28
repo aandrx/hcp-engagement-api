@@ -209,7 +209,7 @@ cython_debug/
 .cursorignore
 
 # ========================================
-# 🔒 SECURITY - SENSITIVE DATA PROTECTION
+# SECURITY - SENSITIVE DATA PROTECTION
 # ========================================
 
 # API Keys and Secrets

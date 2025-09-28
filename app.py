@@ -33,12 +33,12 @@ app.config.update({
 
 # Debug: Check if Groq API key is loaded
 groq_api_key = app.config['GROQ_API_KEY']
-print(f"🔑 Groq API Key Loaded: {'Yes' if groq_api_key else 'No'}")
+print(f"Groq API Key Loaded: {'Yes' if groq_api_key else 'No'}")
 if groq_api_key:
-    print(f"🔑 Key length: {len(groq_api_key)} characters")
-    print(f"🔑 Key starts with: {groq_api_key[:10]}...")
+    print(f"Key length: {len(groq_api_key)} characters")
+    print(f"Key starts with: {groq_api_key[:10]}...")
 else:
-    print("❌ WARNING: No Groq API key found in environment variables")
+    print("WARNING: No Groq API key found in environment variables")
 
 # Security-focused CORS
 CORS(app, resources={
@@ -407,7 +407,7 @@ class GroqAnalysisService:
         """Get available Groq models"""
         return {
             'llama-3.1-8b-instant': 'Llama 3.1 8B Instant',
-            'llama-3.1-70b-versatile': 'Llama 3.1 70B Versatile',  # ✅ Added valid model
+            'llama-3.1-70b-versatile': 'Llama 3.1 70B Versatile',  # Added valid model
             'llama3-groq-8b-8192-tool-use-preview': 'Llama 3 8B Tool Use Preview',
             'mixtral-8x7b-32768': 'Mixtral 8x7B',
             'gemma2-9b-it': 'Gemma 2 9B IT'
@@ -422,12 +422,12 @@ class GroqAnalysisService:
                 return False
             
             # Test the API with a simple request - USE A VALID MODEL
-            test_response = self._call_groq_api("Hello", "llama-3.1-8b-instant")  # ✅ Changed from llama3-8b-8192
+            test_response = self._call_groq_api("Hello", "llama-3.1-8b-instant")  # Changed from llama3-8b-8192
             if test_response is not None:
-                logger.info("✅ Groq API connection successful")
+                logger.info("Groq API connection successful")
                 return True
             else:
-                logger.warning("❌ Groq API test request failed")
+                logger.warning("Groq API test request failed")
                 return False
                 
         except Exception as e:
@@ -469,7 +469,7 @@ class GroqAnalysisService:
             )
             
             if response.status_code == 200:
-                logger.info("✅ Groq API call successful")
+                logger.info("Groq API call successful")
                 return response.json()['choices'][0]['message']['content']
             else:
                 logger.error(f"Groq API error: {response.status_code} - {response.text}")
@@ -882,7 +882,7 @@ class LiteratureSearch(Resource):
             data.get('keywords', []),
             data.get('patient_conditions', []),
             data.get('enable_ai_analysis', True),
-            data.get('ai_model', 'llama-3.1-8b-instant')  # ✅ Changed from llama3-8b-8192
+            data.get('ai_model', 'llama-3.1-8b-instant')  # Changed from llama3-8b-8192
         )
         
         logger.info(f"Literature search by {current_user['sub']} for {data.get('specialty')}")
@@ -900,7 +900,7 @@ class AIAnalysis(Resource):
         
         text = data.get('text', '')
         analysis_type = data.get('analysis_type', 'summary')
-        model = data.get('model', 'llama-3.1-8b-instant')  # ✅ Changed from llama3-8b-8192
+        model = data.get('model', 'llama-3.1-8b-instant')  # Changed from llama3-8b-8192
         
         prompt = f"""
         Please analyze the following text for {analysis_type}:
