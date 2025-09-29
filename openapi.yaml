@@ -112,83 +112,6 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
 
-  /ai/analyze:
-    post:
-      tags:
-        - AI Analysis
-      summary: Analyze clinical text
-      description: Perform AI-powered analysis of clinical text using Groq models
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AIAnalysis'
-            example:
-              text: "65-year-old male with heart failure (EF 35%), hypertension, diabetes"
-              analysis_type: "clinical_implications"
-              model: "llama-3.1-8b-instant"
-      responses:
-        '200':
-          description: AI analysis results
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "success"
-                  data:
-                    type: object
-                    properties:
-                      analysis:
-                        type: string
-                        description: AI-generated analysis
-                      analysis_type:
-                        type: string
-                  metadata:
-                    type: object
-                    properties:
-                      model_used:
-                        type: string
-                      next_steps:
-                        type: array
-                        items:
-                          type: string
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-
-  /ai/models:
-    get:
-      tags:
-        - AI Analysis
-      summary: Get available AI models
-      description: List all available Groq AI models
-      security:
-        - BearerAuth: []
-      responses:
-        '200':
-          description: Available AI models
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  models:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    example:
-                      "llama-3.1-8b-instant": "Llama 3.1 8B Instant"
-                      "llama-3.1-70b-versatile": "Llama 3.1 70B Versatile"
-                      "mixtral-8x7b-32768": "Mixtral 8x7B"
-                      "gemma2-9b-it": "Gemma 2 9B IT"
-
   /analytics/predict-risk:
     post:
       tags:
@@ -316,6 +239,83 @@ paths:
                         type: array
                         items:
                           type: object
+
+  /ai/analyze:
+    post:
+      tags:
+        - AI Analysis
+      summary: Analyze clinical text
+      description: Perform AI-powered analysis of clinical text using Groq models
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIAnalysis'
+            example:
+              text: "65-year-old male with heart failure (EF 35%), hypertension, diabetes"
+              analysis_type: "clinical_implications"
+              model: "llama-3.1-8b-instant"
+      responses:
+        '200':
+          description: AI analysis results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  data:
+                    type: object
+                    properties:
+                      analysis:
+                        type: string
+                        description: AI-generated analysis
+                      analysis_type:
+                        type: string
+                  metadata:
+                    type: object
+                    properties:
+                      model_used:
+                        type: string
+                      next_steps:
+                        type: array
+                        items:
+                          type: string
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /ai/models:
+    get:
+      tags:
+        - AI Analysis
+      summary: Get available AI models
+      description: List all available Groq AI models
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Available AI models
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  models:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example:
+                      "llama-3.1-8b-instant": "Llama 3.1 8B Instant"
+                      "llama-3.1-70b-versatile": "Llama 3.1 70B Versatile"
+                      "mixtral-8x7b-32768": "Mixtral 8x7B"
+                      "gemma2-9b-it": "Gemma 2 9B IT"
 
 components:
   securitySchemes:
@@ -528,7 +528,7 @@ tags:
     description: Authentication operations
   - name: Literature
     description: Medical literature and studies operations
-  - name: AI Analysis
-    description: AI-powered analysis operations
   - name: Analytics
     description: Advanced analytics and predictions
+  - name: AI Analysis
+    description: AI-powered analysis operations
