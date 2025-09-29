@@ -1,0 +1,43 @@
+openapi: 3.0.3
+info:
+  title: HCP Engagement API
+  description: Healthcare Provider engagement API with Groq AI-powered literature analysis
+  version: "2.2"
+servers:
+  - url: http://localhost:5000
+    description: Development server
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      tags: [Authentication]
+      responses:
+        "200":
+          description: Success
+  /literature/search:
+    post:
+      summary: Search medical literature
+      tags: [Literature]
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Success
+  /ai/analyze:
+    post:
+      summary: Analyze clinical text
+      tags: [AI Analysis]
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Success
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Authentication
+  - name: Literature
+  - name: AI Analysis
