@@ -104,27 +104,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>🏥 HCP Engagement API Health Check</h1>
+    <h1>HCP Engagement API Health Check</h1>
     
     <div class="status-grid" id="statusGrid">
       <div class="status-item" id="github-pages">
-        <div class="status-label">📄 Documentation (GitHub Pages)</div>
+        <div class="status-label">Documentation (GitHub Pages)</div>
         <div class="status-detail">Checking Swagger documentation availability...</div>
       </div>
       
       <div class="status-item" id="localhost">
-        <div class="status-label">💻 Local Development</div>
+        <div class="status-label">Local Development</div>
         <div class="status-detail">Checking localhost:5000 availability...</div>
       </div>
       
       <div class="status-item" id="production">
-        <div class="status-label">🌐 Production API</div>
+        <div class="status-label">Production API</div>
         <div class="status-detail">Checking production deployment...</div>
       </div>
     </div>
     
     <button class="check-button" onclick="runHealthCheck()" id="checkButton">
-      🔄 Check API Health
+      Check API Health
     </button>
     
     <div class="info-box">
@@ -192,11 +192,11 @@
       if (githubResult.success) {
         githubElement.className = 'status-item healthy';
         githubElement.querySelector('.status-detail').textContent = 
-          '✅ Documentation is available and accessible';
+          'Documentation is available and accessible';
       } else {
         githubElement.className = 'status-item unhealthy';
         githubElement.querySelector('.status-detail').textContent = 
-          `❌ Documentation unavailable: ${githubResult.error || 'Request failed'}`;
+          `Documentation unavailable: ${githubResult.error || 'Request failed'}`;
       }
       
       // Check localhost
@@ -209,11 +209,11 @@
       if (localhostResult.success) {
         localhostElement.className = 'status-item healthy';
         localhostElement.querySelector('.status-detail').textContent = 
-          '✅ Local development server is running and healthy';
+          'Local development server is running and healthy';
       } else {
         localhostElement.className = 'status-item unhealthy';
         localhostElement.querySelector('.status-detail').textContent = 
-          '❌ Local server not running (start with: python app.py)';
+          'Local server not running (start with: python app.py)';
       }
       
       // Check production deployments
@@ -229,9 +229,9 @@
         const result = await checkEndpoint(url);
         if (result.success) {
           productionHealthy = true;
-          productionDetails.push(`✅ ${url} - Healthy`);
+          productionDetails.push(`${url} - Healthy`);
         } else {
-          productionDetails.push(`❌ ${url} - ${result.error || 'Unavailable'}`);
+          productionDetails.push(`${url} - ${result.error || 'Unavailable'}`);
         }
       }
       
@@ -242,12 +242,12 @@
       } else {
         productionElement.className = 'status-item unhealthy';
         productionElement.querySelector('.status-detail').innerHTML = 
-          '❌ No production deployments found. Deploy to Heroku, Render, or Railway for production access.<br>' +
+          'No production deployments found. Deploy to Heroku, Render, or Railway for production access.<br>' +
           '<small>Update this page with your production URLs once deployed.</small>';
       }
       
       button.disabled = false;
-      button.innerHTML = '🔄 Check API Health';
+      button.innerHTML = 'Check API Health';
     }
 
     // Auto-run health check on page load
