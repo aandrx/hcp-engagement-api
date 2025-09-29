@@ -1,43 +1,534 @@
 openapi: 3.0.3
 info:
-  title: HCP Engagement API
+  title: Groq-Powered HCP Engagement API
   description: Healthcare Provider engagement API with Groq AI-powered literature analysis
   version: "2.2"
+  contact:
+    name: API Support
+    url: https://github.com/aandrx/hcp-engagement-api
+  license:
+    name: MIT
+    url: https://github.com/aandrx/hcp-engagement-api/blob/main/LICENSE
+
 servers:
   - url: http://localhost:5000
     description: Development server
+  - url: https://your-api-domain.com
+    description: Production server
+
+security:
+  - BearerAuth: []
+
 paths:
   /auth/login:
     post:
+      tags:
+        - Authentication
       summary: User login
-      tags: [Authentication]
+      description: Authenticate user and return JWT token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+            example:
+              username: "demo_provider"
+              password: "demo123"
       responses:
-        "200":
-          description: Success
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    description: JWT access token
+                  token_type:
+                    type: string
+                    example: "bearer"
+                  user:
+                    type: object
+                    properties:
+                      username:
+                        type: string
+                      role:
+                        type: string
+                      specialty:
+                        type: string
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
   /literature/search:
     post:
+      tags:
+        - Literature
       summary: Search medical literature
-      tags: [Literature]
+      description: Search PubMed with AI-enhanced analysis
       security:
         - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LiteratureSearch'
+            example:
+              specialty: "Cardiology"
+              keywords: ["heart failure", "statins"]
+              patient_conditions: ["hypertension"]
+              max_results: 3
+              enable_ai_analysis: true
+              ai_model: "llama-3.1-8b-instant"
+              response_format: "detailed"
       responses:
-        "200":
-          description: Success
+        '200':
+          description: Literature search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  data:
+                    type: object
+                    properties:
+                      studies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Study'
+                      ai_analysis:
+                        $ref: '#/components/schemas/AIAnalysisResult'
+                      search_metadata:
+                        $ref: '#/components/schemas/SearchMetadata'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
   /ai/analyze:
     post:
+      tags:
+        - AI Analysis
       summary: Analyze clinical text
-      tags: [AI Analysis]
+      description: Perform AI-powered analysis of clinical text using Groq models
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIAnalysis'
+            example:
+              text: "65-year-old male with heart failure (EF 35%), hypertension, diabetes"
+              analysis_type: "clinical_implications"
+              model: "llama-3.1-8b-instant"
+      responses:
+        '200':
+          description: AI analysis results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  data:
+                    type: object
+                    properties:
+                      analysis:
+                        type: string
+                        description: AI-generated analysis
+                      analysis_type:
+                        type: string
+                  metadata:
+                    type: object
+                    properties:
+                      model_used:
+                        type: string
+                      next_steps:
+                        type: array
+                        items:
+                          type: string
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /ai/models:
+    get:
+      tags:
+        - AI Analysis
+      summary: Get available AI models
+      description: List all available Groq AI models
       security:
         - BearerAuth: []
       responses:
-        "200":
-          description: Success
+        '200':
+          description: Available AI models
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  models:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example:
+                      "llama-3.1-8b-instant": "Llama 3.1 8B Instant"
+                      "llama-3.1-70b-versatile": "Llama 3.1 70B Versatile"
+                      "mixtral-8x7b-32768": "Mixtral 8x7B"
+                      "gemma2-9b-it": "Gemma 2 9B IT"
+
+  /analytics/predict-risk:
+    post:
+      tags:
+        - Analytics
+      summary: Predict patient risk
+      description: Assess patient health risk using clinical rules
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictionRequest'
+            example:
+              patient_data:
+                age: 65
+                systolic_bp: 150
+                glucose: 130
+                cholesterol: 250
+                bmi: 32
+                smoking: 1
+              model_type: "risk"
+      responses:
+        '200':
+          description: Risk prediction results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  prediction:
+                    type: object
+                    properties:
+                      risk_level:
+                        type: string
+                        enum: [low, medium, high]
+                      risk_score:
+                        type: number
+                        format: float
+                      factors:
+                        type: array
+                        items:
+                          type: string
+
+  /analytics/predict-cost:
+    post:
+      tags:
+        - Analytics
+      summary: Predict treatment cost
+      description: Estimate treatment costs based on patient data
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictionRequest'
+            example:
+              patient_data:
+                age: 65
+                procedures: ["medication", "imaging"]
+                risk_level: "high"
+              model_type: "cost"
+      responses:
+        '200':
+          description: Cost prediction results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  prediction:
+                    type: object
+                    properties:
+                      estimated_cost:
+                        type: number
+                        format: float
+                      cost_breakdown:
+                        type: object
+
+  /analytics/population-trends:
+    post:
+      tags:
+        - Analytics
+      summary: Analyze population trends
+      description: Analyze health trends across patient populations
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PopulationAnalysis'
+            example:
+              patients:
+                - age: 65
+                  conditions: ["hypertension"]
+                - age: 72
+                  conditions: ["diabetes", "hypertension"]
+      responses:
+        '200':
+          description: Population analysis results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  analysis:
+                    type: object
+                    properties:
+                      common_conditions:
+                        type: object
+                      risk_distribution:
+                        type: object
+                      trends:
+                        type: array
+                        items:
+                          type: object
+
 components:
   securitySchemes:
     BearerAuth:
       type: http
       scheme: bearer
+      bearerFormat: JWT
+      description: 'Type "Bearer {token}"'
+
+  schemas:
+    Login:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: Username
+          example: "demo_provider"
+        password:
+          type: string
+          description: Password
+          example: "demo123"
+
+    LiteratureSearch:
+      type: object
+      required:
+        - specialty
+      properties:
+        specialty:
+          type: string
+          description: Medical specialty
+          example: "Cardiology"
+        keywords:
+          type: array
+          items:
+            type: string
+          description: Search keywords
+          example: ["heart failure", "statins"]
+        patient_conditions:
+          type: array
+          items:
+            type: string
+          description: Patient conditions
+          example: ["hypertension"]
+        max_results:
+          type: integer
+          default: 99
+          minimum: 1
+          maximum: 99
+          description: Maximum number of results (1-99)
+        enable_ai_analysis:
+          type: boolean
+          default: true
+          description: Enable AI analysis
+        ai_model:
+          type: string
+          default: "llama-3.1-8b-instant"
+          description: Groq model to use
+          enum:
+            - "llama-3.1-8b-instant"
+            - "llama-3.1-70b-versatile"
+            - "mixtral-8x7b-32768"
+            - "gemma2-9b-it"
+        response_format:
+          type: string
+          default: "detailed"
+          enum: ["compact", "detailed"]
+          description: Response format
+
+    AIAnalysis:
+      type: object
+      required:
+        - text
+        - analysis_type
+      properties:
+        text:
+          type: string
+          description: Text to analyze
+          example: "65-year-old male with heart failure (EF 35%), hypertension, diabetes"
+        analysis_type:
+          type: string
+          enum: ["summary", "relevance", "clinical_implications"]
+          description: Type of analysis
+        context:
+          type: object
+          description: Additional context for analysis
+        model:
+          type: string
+          default: "llama-3.1-8b-instant"
+          description: Groq model to use
+
+    PredictionRequest:
+      type: object
+      required:
+        - patient_data
+        - model_type
+      properties:
+        patient_data:
+          type: object
+          description: Patient EMR data
+          example:
+            age: 65
+            systolic_bp: 150
+            glucose: 130
+            cholesterol: 250
+            bmi: 32
+            smoking: 1
+        model_type:
+          type: string
+          enum: ["risk", "outcome", "cost"]
+          description: Type of prediction
+
+    PopulationAnalysis:
+      type: object
+      required:
+        - patients
+      properties:
+        patients:
+          type: array
+          items:
+            type: object
+          description: List of patient data objects
+
+    Study:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Study ID
+        title:
+          type: string
+          description: Study title
+        journal:
+          type: string
+          description: Journal name
+        publication_date:
+          type: string
+          description: Publication date
+        relevance_score:
+          type: number
+          format: float
+          description: Relevance score
+        abstract:
+          type: string
+          description: Study abstract
+        url:
+          type: string
+          description: PubMed URL
+        authors:
+          type: array
+          items:
+            type: string
+          description: Study authors
+
+    AIAnalysisResult:
+      type: object
+      properties:
+        summary:
+          type: string
+          description: AI-generated summary
+        key_findings:
+          type: array
+          items:
+            type: string
+          description: Key findings
+        confidence_score:
+          type: number
+          format: float
+          description: Confidence score
+
+    SearchMetadata:
+      type: object
+      properties:
+        specialty:
+          type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        total_results_returned:
+          type: integer
+        timestamp:
+          type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "error"
+        message:
+          type: string
+          description: Error message
+        error:
+          type: string
+          description: Error details
+
+  responses:
+    UnauthorizedError:
+      description: Authentication information is missing or invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
 tags:
   - name: Authentication
+    description: Authentication operations
   - name: Literature
+    description: Medical literature and studies operations
   - name: AI Analysis
+    description: AI-powered analysis operations
+  - name: Analytics
+    description: Advanced analytics and predictions
