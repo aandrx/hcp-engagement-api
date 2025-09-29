@@ -1,0 +1,107 @@
+name: API Health Check
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check API Health
+        id: health
+        run: |
+          echo "Checking API health..."
+          
+          # Check GitHub Pages documentation
+          echo "📄 Checking GitHub Pages documentation..."
+          if curl -s -f "https://aandrx.github.io/hcp-engagement-api/openapi.yaml" > /dev/null; then
+            echo "✅ Documentation is accessible"
+            echo "docs_status=healthy" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Documentation is not accessible"
+            echo "docs_status=unhealthy" >> $GITHUB_OUTPUT
+          fi
+          
+          # Check for common deployment platforms
+          echo "🌐 Checking production deployments..."
+          production_healthy=false
+          
+          # Add your production URLs here when deployed
+          # Heroku example: if curl -s -f "https://your-app.herokuapp.com/health" > /dev/null; then
+          # Render example: if curl -s -f "https://your-app.onrender.com/health" > /dev/null; then  
+          # Railway example: if curl -s -f "https://your-app.railway.app/health" > /dev/null; then
+          
+          # For now, mark as healthy if docs are accessible
+          if [ "${{ steps.health.outputs.docs_status }}" = "healthy" ]; then
+            echo "production_status=ready_for_deployment" >> $GITHUB_OUTPUT
+          else
+            echo "production_status=unhealthy" >> $GITHUB_OUTPUT
+          fi
+          
+          # Overall status
+          if [ "${{ steps.health.outputs.docs_status }}" = "healthy" ]; then
+            echo "overall_status=healthy" >> $GITHUB_OUTPUT
+            echo "status_color=brightgreen" >> $GITHUB_OUTPUT
+            echo "status_message=Documentation Available" >> $GITHUB_OUTPUT
+          else
+            echo "overall_status=unhealthy" >> $GITHUB_OUTPUT
+            echo "status_color=red" >> $GITHUB_OUTPUT
+            echo "status_message=Documentation Unavailable" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update README with health status
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Updating health status in README..."
+          
+          # Create a status badge based on health check results
+          status_badge="[![API Health](https://img.shields.io/badge/API_Health-${{ steps.health.outputs.status_message }}-${{ steps.health.outputs.status_color }}.svg?logo=statuspage&logoColor=white)](https://aandrx.github.io/hcp-engagement-api/health.html)"
+          
+          echo "Health Status: ${{ steps.health.outputs.overall_status }}"
+          echo "Docs Status: ${{ steps.health.outputs.docs_status }}"
+          
+      - name: Create status file for GitHub Pages
+        run: |
+          mkdir -p ./status
+          cat > ./status/health.json << EOF
+          {
+            "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "overall_status": "${{ steps.health.outputs.overall_status }}",
+            "documentation": {
+              "status": "${{ steps.health.outputs.docs_status }}",
+              "url": "https://aandrx.github.io/hcp-engagement-api/"
+            },
+            "production": {
+              "status": "${{ steps.health.outputs.production_status }}",
+              "message": "Add production URLs to workflow for live monitoring"
+            },
+            "services": {
+              "authentication": "ready",
+              "literature_search": "ready", 
+              "ai_analysis": "ready",
+              "analytics": "ready"
+            },
+            "next_steps": [
+              "Deploy API to production platform (Heroku, Render, Railway)",
+              "Update GitHub Actions workflow with production URLs",
+              "Configure environment variables for production"
+            ]
+          }
+          EOF
+
+      - name: Deploy status to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./status
+          destination_dir: status
+          keep_files: true

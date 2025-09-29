@@ -217,7 +217,7 @@ Response
     </a>
   </p>
   <p>
-    <a href="http://localhost:5000/health">
+    <a href="https://aandrx.github.io/hcp-engagement-api/health.html">
       <img width="200" height="52" src="https://img.shields.io/badge/Health_Check-00D9FF.svg?logo=statuspage&logoColor=white&style=for-the-badge" />
     </a>
   </p>

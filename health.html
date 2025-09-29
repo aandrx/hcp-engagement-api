@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HCP Engagement API - Health Check</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .status-grid {
+      display: grid;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .status-item {
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #ccc;
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+    }
+    .status-item.checking {
+      border-left-color: #ffc107;
+      background: #fff3cd;
+    }
+    .status-item.healthy {
+      border-left-color: #28a745;
+      background: #d4edda;
+    }
+    .status-item.unhealthy {
+      border-left-color: #dc3545;
+      background: #f8d7da;
+    }
+    .status-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .status-detail {
+      font-size: 14px;
+      color: #666;
+    }
+    .check-button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .check-button:hover {
+      background: #0056b3;
+    }
+    .check-button:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+    .info-box {
+      background: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏥 HCP Engagement API Health Check</h1>
+    
+    <div class="status-grid" id="statusGrid">
+      <div class="status-item" id="github-pages">
+        <div class="status-label">📄 Documentation (GitHub Pages)</div>
+        <div class="status-detail">Checking Swagger documentation availability...</div>
+      </div>
+      
+      <div class="status-item" id="localhost">
+        <div class="status-label">💻 Local Development</div>
+        <div class="status-detail">Checking localhost:5000 availability...</div>
+      </div>
+      
+      <div class="status-item" id="production">
+        <div class="status-label">🌐 Production API</div>
+        <div class="status-detail">Checking production deployment...</div>
+      </div>
+    </div>
+    
+    <button class="check-button" onclick="runHealthCheck()" id="checkButton">
+      🔄 Check API Health
+    </button>
+    
+    <div class="info-box">
+      <strong>About this Health Check:</strong><br>
+      This tool checks the availability of the HCP Engagement API across different environments:
+      <ul>
+        <li><strong>Documentation</strong> - GitHub Pages hosted Swagger documentation</li>
+        <li><strong>Local Development</strong> - Your local development server (if running)</li>
+        <li><strong>Production</strong> - Deployed API instances (Heroku, Render, Railway, etc.)</li>
+      </ul>
+      For production deployments, update the <code>productionUrls</code> array in this page with your actual deployment URLs.
+    </div>
+  </div>
+
+  <script>
+    const endpoints = {
+      'github-pages': 'https://aandrx.github.io/hcp-engagement-api/openapi.yaml',
+      'localhost': 'http://localhost:5000/health',
+      'production': [
+        // Add your production URLs here when deployed
+        'https://your-app.herokuapp.com/health',
+        'https://your-app.onrender.com/health',
+        'https://your-app.railway.app/health'
+      ]
+    };
+
+    async function checkEndpoint(url, timeout = 5000) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        
+        const response = await fetch(url, {
+          method: 'GET',
+          signal: controller.signal,
+          mode: 'cors'
+        });
+        
+        clearTimeout(timeoutId);
+        return {
+          success: response.ok,
+          status: response.status,
+          url: url
+        };
+      } catch (error) {
+        return {
+          success: false,
+          error: error.message,
+          url: url
+        };
+      }
+    }
+
+    async function runHealthCheck() {
+      const button = document.getElementById('checkButton');
+      button.disabled = true;
+      button.innerHTML = '<span class="spinner"></span>Checking...';
+      
+      // Check GitHub Pages documentation
+      const githubElement = document.getElementById('github-pages');
+      githubElement.className = 'status-item checking';
+      githubElement.querySelector('.status-detail').innerHTML = 
+        '<span class="spinner"></span>Checking documentation availability...';
+      
+      const githubResult = await checkEndpoint(endpoints['github-pages']);
+      if (githubResult.success) {
+        githubElement.className = 'status-item healthy';
+        githubElement.querySelector('.status-detail').textContent = 
+          '✅ Documentation is available and accessible';
+      } else {
+        githubElement.className = 'status-item unhealthy';
+        githubElement.querySelector('.status-detail').textContent = 
+          `❌ Documentation unavailable: ${githubResult.error || 'Request failed'}`;
+      }
+      
+      // Check localhost
+      const localhostElement = document.getElementById('localhost');
+      localhostElement.className = 'status-item checking';
+      localhostElement.querySelector('.status-detail').innerHTML = 
+        '<span class="spinner"></span>Checking local development server...';
+      
+      const localhostResult = await checkEndpoint(endpoints['localhost']);
+      if (localhostResult.success) {
+        localhostElement.className = 'status-item healthy';
+        localhostElement.querySelector('.status-detail').textContent = 
+          '✅ Local development server is running and healthy';
+      } else {
+        localhostElement.className = 'status-item unhealthy';
+        localhostElement.querySelector('.status-detail').textContent = 
+          '❌ Local server not running (start with: python app.py)';
+      }
+      
+      // Check production deployments
+      const productionElement = document.getElementById('production');
+      productionElement.className = 'status-item checking';
+      productionElement.querySelector('.status-detail').innerHTML = 
+        '<span class="spinner"></span>Checking production deployments...';
+      
+      let productionHealthy = false;
+      let productionDetails = [];
+      
+      for (const url of endpoints['production']) {
+        const result = await checkEndpoint(url);
+        if (result.success) {
+          productionHealthy = true;
+          productionDetails.push(`✅ ${url} - Healthy`);
+        } else {
+          productionDetails.push(`❌ ${url} - ${result.error || 'Unavailable'}`);
+        }
+      }
+      
+      if (productionHealthy) {
+        productionElement.className = 'status-item healthy';
+        productionElement.querySelector('.status-detail').innerHTML = 
+          productionDetails.join('<br>');
+      } else {
+        productionElement.className = 'status-item unhealthy';
+        productionElement.querySelector('.status-detail').innerHTML = 
+          '❌ No production deployments found. Deploy to Heroku, Render, or Railway for production access.<br>' +
+          '<small>Update this page with your production URLs once deployed.</small>';
+      }
+      
+      button.disabled = false;
+      button.innerHTML = '🔄 Check API Health';
+    }
+
+    // Auto-run health check on page load
+    window.addEventListener('load', () => {
+      setTimeout(runHealthCheck, 500);
+    });
+  </script>
+</body>
+</html>
