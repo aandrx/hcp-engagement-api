@@ -212,7 +212,7 @@ Response
 
 <div align="center">
   <p>
-    <a href="http://localhost:5000/docs/">
+    <a href="https://aandrx.github.io/hcp-engagement-api/#/">
       <img width="200" height="52" src="https://img.shields.io/badge/Swagger_API_Docs-85EA2D.svg?logo=swagger&logoColor=black&style=for-the-badge" />
     </a>
   </p>
