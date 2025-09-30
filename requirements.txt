@@ -28,6 +28,9 @@ requests==2.31.0
 # Groq API no heavy ML deps
 groq==0.32.0
 
+# production server
+gunicorn==21.2.0
+
 # utils
 Werkzeug==2.3.7
 python-dateutil==2.8.2

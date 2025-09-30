@@ -1290,10 +1290,24 @@ def internal_error(error):
     return {'message': 'Internal server error'}, 500
 
 if __name__ == '__main__':
+    # Production deployment settings
+    port = int(os.getenv('PORT', 5000))  # Render provides PORT environment variable
+    debug_mode = os.getenv('FLASK_ENV') == 'development'
+    
     logger.info("Starting Groq-Powered HCP Engagement API v2.2")
     logger.info("AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)")
     logger.info("Smart Literature: AI-powered relevance analysis")
     logger.info("Authentication: Bearer token required")
     logger.info("WebSocket: Real-time notifications available")
+    logger.info(f"Environment: {os.getenv('FLASK_ENV', 'production')}")
+    logger.info(f"Port: {port}")
+    logger.info(f"Debug: {debug_mode}")
     
-    socketio.run(app, host='0.0.0.0', port=5000, debug=os.getenv('FLASK_DEBUG', False))
+    # Use different server for production vs development
+    if os.getenv('FLASK_ENV') == 'production':
+        # In production, Gunicorn will handle the WSGI app
+        # This code won't be executed when using Gunicorn
+        logger.info("Production mode: Use Gunicorn to serve this application")
+    else:
+        # Development mode with SocketIO
+        socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode)

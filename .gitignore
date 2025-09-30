@@ -295,3 +295,7 @@ __marimo__/
 # logs
 .logs
 logs/
+
+# markdown folder (documentation drafts)
+markdown/git rm -r --cached markdown/
+git commit -m "Remove markdown folder from tracking"
