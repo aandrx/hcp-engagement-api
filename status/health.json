@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-30T20:38:01Z",
+  "timestamp": "2025-09-30T21:10:30Z",
   "overall_status": "healthy",
   "documentation": {
     "status": "healthy",
@@ -10,9 +10,15 @@
     "status": "healthy",
     "url": "https://aandrx.github.io/hcp-engagement-api/health.html"
   },
+  "render_deployment": {
+    "status": "unhealthy",
+    "url": "https://hcp-engagement-api.onrender.com",
+    "groq_integration": "unknown",
+    "last_checked": "2025-09-30T21:10:30Z"
+  },
   "production": {
-    "status": "ready_for_deployment",
-    "message": "API ready for deployment to cloud platforms"
+    "status": "deployed",
+    "message": "API deployed and monitored on Render"
   },
   "services": {
     "authentication": "ready",
