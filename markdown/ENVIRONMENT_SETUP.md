@@ -4,7 +4,7 @@ This document lists all environment variables needed for deploying the HCP Engag
 
 ## Required Environment Variables
 
-### 🔐 Security (Required)
+### Security (Required)
 ```
 SECRET_KEY=your-secret-key-here
 JWT_SECRET_KEY=your-jwt-secret-key-here
@@ -17,13 +17,13 @@ GROQ_API_KEY=your-groq-api-key-here
 ```
 **How to get**: Sign up at [console.groq.com](https://console.groq.com) and create an API key
 
-### 🌐 Application Settings
+### Application Settings
 ```
 FLASK_ENV=production
 PYTHON_VERSION=3.11.0
 ```
 
-### 📊 Optional Services
+### Optional Services
 ```
 REDIS_URL=redis://localhost:6379/0
 ```
@@ -48,19 +48,19 @@ REDIS_URL=redis://localhost:6379/0
 
 ## Security Best Practices
 
-- ✅ Never commit API keys to GitHub
-- ✅ Use Render's environment variables for secrets
-- ✅ Let Render auto-generate SECRET_KEY and JWT_SECRET_KEY
-- ✅ Rotate API keys periodically
-- ❌ Don't use production keys in development
+- Never commit API keys to GitHub
+- Use Render's environment variables for secrets
+- Let Render auto-generate SECRET_KEY and JWT_SECRET_KEY
+- Rotate API keys periodically
+- Don't use production keys in development
 
 ## Verification
 
 After setting up environment variables, your API will:
-- ✅ Start successfully without errors
-- ✅ Pass the `/health` endpoint check
-- ✅ Show Groq integration as "available" in health status
-- ✅ Allow AI-powered literature analysis
+- Start successfully without errors
+- Pass the `/health` endpoint check
+- Show Groq integration as "available" in health status
+- Allow AI-powered literature analysis
 
 ## Troubleshooting
 

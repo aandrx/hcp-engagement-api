@@ -23,14 +23,14 @@ jobs:
       - name: Check Documentation Health
         id: docs
         run: |
-          echo "📄 Checking GitHub Pages documentation..."
+          echo "Checking GitHub Pages documentation..."
           if curl -s -f -I "https://aandrx.github.io/hcp-engagement-api/openapi.yaml" > /dev/null 2>&1; then
-            echo "✅ Documentation is accessible"
+            echo "Documentation is accessible"
             echo "status=healthy" >> $GITHUB_OUTPUT
             echo "message=Available" >> $GITHUB_OUTPUT
             echo "color=brightgreen" >> $GITHUB_OUTPUT
           else
-            echo "❌ Documentation is not accessible"
+            echo "Documentation is not accessible"
             echo "status=unhealthy" >> $GITHUB_OUTPUT
             echo "message=Unavailable" >> $GITHUB_OUTPUT
             echo "color=red" >> $GITHUB_OUTPUT
@@ -39,52 +39,122 @@ jobs:
       - name: Check Health Page
         id: health_page
         run: |
-          echo "🏥 Checking health page..."
+          echo "Checking health page..."
           if curl -s -f -I "https://aandrx.github.io/hcp-engagement-api/health.html" > /dev/null 2>&1; then
-            echo "✅ Health page is accessible"
+            echo "Health page is accessible"
             echo "status=healthy" >> $GITHUB_OUTPUT
           else
-            echo "❌ Health page is not accessible"
+            echo "Health page is not accessible"
             echo "status=unhealthy" >> $GITHUB_OUTPUT
           fi
 
       - name: Check Render Deployment
         id: render_api
         run: |
-          echo "🚀 Checking Render deployment..."
-          # Replace 'your-app-name' with your actual Render service name
+          echo "Checking Render deployment..."
           RENDER_URL="https://hcp-engagement-api.onrender.com"
           
-          if curl -s -f "${RENDER_URL}/health" --max-time 30 > /dev/null 2>&1; then
-            echo "✅ Render API is live and healthy"
-            echo "status=healthy" >> $GITHUB_OUTPUT
-            echo "url=${RENDER_URL}" >> $GITHUB_OUTPUT
+          # Test basic connectivity first
+          echo "Testing basic connectivity..."
+          if curl -s -f -I "${RENDER_URL}" --max-time 30 > /dev/null 2>&1; then
+            echo "Render service is responding"
             
-            # Test if Groq integration is working
-            if curl -s "${RENDER_URL}/health" --max-time 30 | grep -q '"groq_integration"' 2>/dev/null; then
-              echo "✅ Groq AI integration detected"
-              echo "groq_status=active" >> $GITHUB_OUTPUT
+            # Test health endpoint
+            echo "Testing health endpoint..."
+            if HEALTH_RESPONSE=$(curl -s -f "${RENDER_URL}/health" --max-time 30 2>/dev/null); then
+              echo "Health endpoint is accessible"
+              echo "status=healthy" >> $GITHUB_OUTPUT
+              echo "url=${RENDER_URL}" >> $GITHUB_OUTPUT
+              
+              # Check for specific health indicators
+              if echo "$HEALTH_RESPONSE" | grep -q '"status": "healthy"'; then
+                echo "API reports healthy status"
+                echo "api_status=healthy" >> $GITHUB_OUTPUT
+              else
+                echo "API health status unclear"
+                echo "api_status=unknown" >> $GITHUB_OUTPUT
+              fi
+              
+              # Test Groq integration
+              if echo "$HEALTH_RESPONSE" | grep -q '"groq_integration"'; then
+                if echo "$HEALTH_RESPONSE" | grep -q '"available": true'; then
+                  echo "Groq AI integration is active"
+                  echo "groq_status=active" >> $GITHUB_OUTPUT
+                else
+                  echo "Groq AI integration found but not active"
+                  echo "groq_status=inactive" >> $GITHUB_OUTPUT
+                fi
+              else
+                echo "Groq AI integration status unknown"
+                echo "groq_status=unknown" >> $GITHUB_OUTPUT
+              fi
+              
+              # Test API documentation
+              echo "Testing API documentation..."
+              if curl -s -f -I "${RENDER_URL}/docs" --max-time 15 > /dev/null 2>&1; then
+                echo "API documentation is accessible"
+                echo "docs_status=available" >> $GITHUB_OUTPUT
+              else
+                echo "API documentation not accessible"
+                echo "docs_status=unavailable" >> $GITHUB_OUTPUT
+              fi
+              
             else
-              echo "⚠️ Groq AI integration status unknown"
+              echo "Health endpoint not accessible"
+              echo "status=unhealthy" >> $GITHUB_OUTPUT
+              echo "url=${RENDER_URL}" >> $GITHUB_OUTPUT
+              echo "api_status=unhealthy" >> $GITHUB_OUTPUT
               echo "groq_status=unknown" >> $GITHUB_OUTPUT
+              echo "docs_status=unknown" >> $GITHUB_OUTPUT
             fi
           else
-            echo "❌ Render API is not accessible or unhealthy"
+            echo "Render service is not responding"
             echo "status=unhealthy" >> $GITHUB_OUTPUT
             echo "url=${RENDER_URL}" >> $GITHUB_OUTPUT
+            echo "api_status=unreachable" >> $GITHUB_OUTPUT
             echo "groq_status=unknown" >> $GITHUB_OUTPUT
+            echo "docs_status=unknown" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Test API Authentication
+        id: auth_test
+        run: |
+          echo "Testing API authentication..."
+          RENDER_URL="https://hcp-engagement-api.onrender.com"
+          
+          if [ "${{ steps.render_api.outputs.status }}" = "healthy" ]; then
+            # Test login endpoint
+            if AUTH_RESPONSE=$(curl -s -X POST "${RENDER_URL}/auth/login" \
+              -H "Content-Type: application/json" \
+              -d '{"username": "demo_provider", "password": "demo123"}' \
+              --max-time 15 2>/dev/null); then
+              
+              if echo "$AUTH_RESPONSE" | grep -q '"access_token"'; then
+                echo "Authentication endpoint working"
+                echo "auth_status=working" >> $GITHUB_OUTPUT
+              else
+                echo "Authentication endpoint responded but no token received"
+                echo "auth_status=partial" >> $GITHUB_OUTPUT
+              fi
+            else
+              echo "Authentication endpoint not responding"
+              echo "auth_status=failed" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "⏭Skipping auth test - API not healthy"
+            echo "auth_status=skipped" >> $GITHUB_OUTPUT
           fi
 
       - name: Create Status Report
         run: |
-          echo "📊 Creating status report..."
+          echo "Creating status report..."
           mkdir -p ./status
           
           # Create health status JSON
           cat > ./status/health.json << EOF
           {
             "timestamp": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-            "overall_status": "${{ steps.docs.outputs.status }}",
+            "overall_status": "${{ steps.render_api.outputs.status }}",
             "documentation": {
               "status": "${{ steps.docs.outputs.status }}",
               "url": "https://aandrx.github.io/hcp-engagement-api/",
@@ -97,8 +167,16 @@ jobs:
             "render_deployment": {
               "status": "${{ steps.render_api.outputs.status }}",
               "url": "${{ steps.render_api.outputs.url }}",
+              "api_health": "${{ steps.render_api.outputs.api_status }}",
               "groq_integration": "${{ steps.render_api.outputs.groq_status }}",
-              "last_checked": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+              "documentation": "${{ steps.render_api.outputs.docs_status }}",
+              "last_checked": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+              "authentication_test": "${{ steps.auth_test.outputs.auth_status }}",
+              "endpoints": {
+                "health": "${{ steps.render_api.outputs.url }}/health",
+                "docs": "${{ steps.render_api.outputs.url }}/docs",
+                "auth": "${{ steps.render_api.outputs.url }}/auth/login"
+              }
             },
             "production": {
               "status": "deployed",
@@ -134,16 +212,32 @@ jobs:
           
       - name: Summary
         run: |
-          echo "## Health Check Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- Documentation: ${{ steps.docs.outputs.status }} ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Health Page: ${{ steps.health_page.outputs.status }} ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Render API: ${{ steps.render_api.outputs.status }} 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "- Groq AI: ${{ steps.render_api.outputs.groq_status }} 🤖" >> $GITHUB_STEP_SUMMARY
-          echo "- Status Report: Generated and deployed ✅" >> $GITHUB_STEP_SUMMARY
+          echo "## HCP Engagement API Health Check Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 **Links:**" >> $GITHUB_STEP_SUMMARY
-          echo "- [API Documentation](https://aandrx.github.io/hcp-engagement-api/)" >> $GITHUB_STEP_SUMMARY
-          echo "- [Health Status](https://aandrx.github.io/hcp-engagement-api/health.html)" >> $GITHUB_STEP_SUMMARY
-          echo "- [Live API](${{ steps.render_api.outputs.url }})" >> $GITHUB_STEP_SUMMARY
-          echo "- [API Health Check](${{ steps.render_api.outputs.url }}/health)" >> $GITHUB_STEP_SUMMARY
-          echo "- [Status JSON](https://aandrx.github.io/hcp-engagement-api/status/health.json)" >> $GITHUB_STEP_SUMMARY
+          echo "### Service Status" >> $GITHUB_STEP_SUMMARY
+          echo "| Service | Status | Details |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|---------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Documentation | ${{ steps.docs.outputs.status }} | GitHub Pages |" >> $GITHUB_STEP_SUMMARY
+          echo "| Health Page | ${{ steps.health_page.outputs.status }} | Static Health UI |" >> $GITHUB_STEP_SUMMARY
+          echo "| Render API | ${{ steps.render_api.outputs.status }} | Live API Service |" >> $GITHUB_STEP_SUMMARY
+          echo "| Groq AI | ${{ steps.render_api.outputs.groq_status }} | AI Integration |" >> $GITHUB_STEP_SUMMARY
+          echo "| API Docs | ${{ steps.render_api.outputs.docs_status }} | Interactive Docs |" >> $GITHUB_STEP_SUMMARY
+          echo "| Authentication | ${{ steps.auth_test.outputs.auth_status }} | Login Endpoint |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Quick Links" >> $GITHUB_STEP_SUMMARY
+          echo "- **Live API**: [${{ steps.render_api.outputs.url }}](${{ steps.render_api.outputs.url }})" >> $GITHUB_STEP_SUMMARY
+          echo "- **Health Check**: [${{ steps.render_api.outputs.url }}/health](${{ steps.render_api.outputs.url }}/health)" >> $GITHUB_STEP_SUMMARY
+          echo "- **API Documentation**: [${{ steps.render_api.outputs.url }}/docs](${{ steps.render_api.outputs.url }}/docs)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Project Docs**: [GitHub Pages](https://aandrx.github.io/hcp-engagement-api/)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status JSON**: [Health Status](https://aandrx.github.io/hcp-engagement-api/status/health.json)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Test Your API" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "# Test health endpoint" >> $GITHUB_STEP_SUMMARY
+          echo "curl ${{ steps.render_api.outputs.url }}/health" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# Test authentication" >> $GITHUB_STEP_SUMMARY
+          echo "curl -X POST ${{ steps.render_api.outputs.url }}/auth/login \\" >> $GITHUB_STEP_SUMMARY
+          echo '  -H "Content-Type: application/json" \' >> $GITHUB_STEP_SUMMARY
+          echo '  -d '"'"'{"username": "demo_provider", "password": "demo123"}'"'"'' >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
