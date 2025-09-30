@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 from flask_restx import Api, Resource, fields
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS 
@@ -91,6 +91,38 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Create blueprint for root route
+root_bp = Blueprint('root', __name__)
+
+@root_bp.route('/')
+def api_root():
+    """API root endpoint with basic information"""
+    return {
+        'name': 'HCP Engagement API',
+        'version': '2.2',
+        'description': 'Healthcare Provider engagement API with Groq AI-powered literature analysis',
+        'status': 'active',
+        'timestamp': datetime.utcnow().isoformat(),
+        'endpoints': {
+            'health': '/health',
+            'documentation': '/docs/',
+            'authentication': '/auth/login',
+            'literature_search': '/literature/search',
+            'ai_analysis': '/ai/analyze',
+            'analytics': '/analytics/predict-risk'
+        },
+        'features': [
+            'AI-powered literature analysis via Groq',
+            'Secure JWT authentication',
+            'Healthcare analytics and risk prediction',
+            'PubMed integration for medical research',
+            'Real-time monitoring and health checks'
+        ]
+    }
+
+# Register blueprint before API initialization
+app.register_blueprint(root_bp)
+
 # Initialize APIs
 api = Api(app, 
     version='2.2', 
@@ -130,7 +162,6 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 memory_store = {}
 
 # Namespaces
-ns_default = api.default_namespace('', description='API root and basic information')
 ns_auth = api.namespace('auth', description='Authentication operations')
 ns_literature = api.namespace('literature', description='Medical literature and studies operations')
 ns_analytics = api.namespace('analytics', description='Advanced analytics and predictions')
@@ -1060,37 +1091,7 @@ else:
 
 # ========== API ROUTES ==========
 
-# Root API Information
-@ns_default.route('/')
-class Root(Resource):
-    def get(self):
-        """API root endpoint with basic information"""
-        return {
-            'name': 'HCP Engagement API',
-            'version': '2.2',
-            'description': 'Healthcare Provider engagement API with Groq AI-powered literature analysis',
-            'status': 'active',
-            'timestamp': datetime.utcnow().isoformat(),
-            'endpoints': {
-                'health': '/health',
-                'documentation': '/docs/',
-                'authentication': '/auth/login',
-                'literature_search': '/literature/search',
-                'ai_analysis': '/ai/analyze',
-                'analytics': '/analytics/predict-risk'
-            },
-            'features': [
-                'AI-powered literature analysis via Groq',
-                'Secure JWT authentication',
-                'Healthcare analytics and risk prediction',
-                'PubMed integration for medical research',
-                'Real-time monitoring and health checks'
-            ],
-            'groq_integration': {
-                'available': ai_service.groq_available if 'ai_service' in globals() else False,
-                'models_available': list(ai_service.available_models.keys()) if 'ai_service' in globals() and ai_service.groq_available else []
-            }
-        }
+
 
 # Authentication
 @ns_auth.route('/login')
