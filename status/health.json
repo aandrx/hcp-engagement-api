@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-30T21:10:30Z",
+  "timestamp": "2025-09-30T21:11:42Z",
   "overall_status": "healthy",
   "documentation": {
     "status": "healthy",
@@ -14,7 +14,7 @@
     "status": "unhealthy",
     "url": "https://hcp-engagement-api.onrender.com",
     "groq_integration": "unknown",
-    "last_checked": "2025-09-30T21:10:30Z"
+    "last_checked": "2025-09-30T21:11:42Z"
   },
   "production": {
     "status": "deployed",
