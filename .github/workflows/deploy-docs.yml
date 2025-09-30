@@ -1,0 +1,71 @@
+name: Deploy API Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'health.html'
+      - 'openapi.yaml'
+      - 'README.md'
+      - '.github/workflows/health-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Create status directory
+        run: |
+          mkdir -p status
+          echo "Status directory created for health monitoring data"
+
+      - name: Generate API info page
+        run: |
+          echo '<!DOCTYPE html>' > api-info.html
+          echo '<html lang="en"><head>' >> api-info.html
+          echo '<meta charset="UTF-8">' >> api-info.html
+          echo '<title>HCP Engagement API - Live Status</title>' >> api-info.html
+          echo '<style>body{font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:20px;line-height:1.6}' >> api-info.html
+          echo '.status-card{background:#f8f9fa;border-left:4px solid #28a745;padding:16px;margin:16px 0;border-radius:4px}' >> api-info.html
+          echo '.api-link{background:#007bff;color:white;padding:12px 24px;text-decoration:none;border-radius:6px;display:inline-block;margin:8px 8px 8px 0}' >> api-info.html
+          echo '</style></head><body>' >> api-info.html
+          echo '<h1>🏥 HCP Engagement API</h1>' >> api-info.html
+          echo '<p>AI-powered medical literature analysis platform.</p>' >> api-info.html
+          echo '<div class="status-card"><h3>🚀 Live API</h3>' >> api-info.html
+          echo '<a href="https://hcp-engagement-api.onrender.com/" class="api-link">Live API</a>' >> api-info.html
+          echo '<a href="https://hcp-engagement-api.onrender.com/health" class="api-link">Health Check</a>' >> api-info.html
+          echo '<a href="https://hcp-engagement-api.onrender.com/docs" class="api-link">API Docs</a></div>' >> api-info.html
+          echo '<div class="status-card"><h3>📚 Documentation</h3>' >> api-info.html
+          echo '<a href="./index.html" class="api-link">API Documentation</a>' >> api-info.html
+          echo '<a href="./health.html" class="api-link">Health Monitor</a></div>' >> api-info.html
+          echo '</body></html>' >> api-info.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
