@@ -1268,6 +1268,37 @@ class AIModels(Resource):
             'timestamp': datetime.utcnow().isoformat()
         }
 
+# Root endpoint - API information
+@app.route('/')
+def index():
+    """API root endpoint with basic information"""
+    return {
+        'name': 'HCP Engagement API',
+        'version': '2.2',
+        'description': 'Healthcare Provider engagement API with Groq AI-powered literature analysis',
+        'status': 'active',
+        'timestamp': datetime.utcnow().isoformat(),
+        'endpoints': {
+            'health': '/health',
+            'documentation': '/docs/',
+            'authentication': '/auth/login',
+            'literature_search': '/literature/search',
+            'ai_analysis': '/ai/analyze',
+            'analytics': '/analytics/predict-risk'
+        },
+        'features': [
+            'AI-powered literature analysis via Groq',
+            'Secure JWT authentication',
+            'Healthcare analytics and risk prediction',
+            'PubMed integration for medical research',
+            'Real-time monitoring and health checks'
+        ],
+        'groq_integration': {
+            'available': ai_service.groq_available,
+            'models_available': list(ai_service.available_models.keys()) if ai_service.groq_available else []
+        }
+    }
+
 # Enhanced health endpoint
 @app.route('/health')
 def health():
