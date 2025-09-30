@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-09-30T17:45:18Z",
+  "overall_status": "healthy",
+  "documentation": {
+    "status": "healthy",
+    "url": "https://aandrx.github.io/hcp-engagement-api/",
+    "openapi_url": "https://aandrx.github.io/hcp-engagement-api/openapi.yaml"
+  },
+  "health_page": {
+    "status": "healthy",
+    "url": "https://aandrx.github.io/hcp-engagement-api/health.html"
+  },
+  "production": {
+    "status": "ready_for_deployment",
+    "message": "API ready for deployment to cloud platforms"
+  },
+  "services": {
+    "authentication": "ready",
+    "literature_search": "ready", 
+    "ai_analysis": "ready",
+    "analytics": "ready"
+  },
+  "deployment_options": [
+    "Heroku",
+    "Render", 
+    "Railway",
+    "Azure Container Apps",
+    "AWS App Runner"
+  ]
+}
