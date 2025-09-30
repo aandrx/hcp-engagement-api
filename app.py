@@ -97,6 +97,7 @@ api = Api(app,
     title='Groq-Powered HCP Engagement API', 
     description='Healthcare Provider engagement API with Groq AI-powered literature analysis',
     doc='/docs/',
+    catch_all_404s=False,  # Allow Flask routes to handle unmatched routes
     authorizations={
         'Bearer Auth': {
             'type': 'apiKey',
