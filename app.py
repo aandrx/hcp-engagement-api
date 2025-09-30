@@ -108,12 +108,19 @@ api = Api(app,
     security='Bearer Auth'
 )
 
-# Initialize WebSocket for real-time features
-socketio = SocketIO(app, 
-    # cors_allowed_origins=allowed_origins,
-    logger=logger,
-    engineio_logger=False
-)
+# Initialize WebSocket for real-time features (with error handling for production)
+socketio = None
+try:
+    socketio = SocketIO(app, 
+        # cors_allowed_origins=allowed_origins,
+        logger=logger,
+        engineio_logger=False,
+        async_mode='gevent'  # Use gevent instead of eventlet
+    )
+    logger.info("SocketIO initialized successfully with gevent")
+except Exception as e:
+    logger.warning(f"SocketIO initialization failed: {e}. Real-time features disabled.")
+    socketio = None
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -249,9 +256,11 @@ class RealTimeService:
             'data': notification
         }
         
-        if user_id in self.active_connections:
+        if socketio and user_id in self.active_connections:
             for sid in self.active_connections[user_id]:
                 socketio.emit('notification', message, room=sid)
+        elif not socketio:
+            logger.debug(f"SocketIO not available - notification not sent to user {user_id}")
 
 # Lightweight Analytics Service
 class AnalyticsService:
@@ -1024,24 +1033,28 @@ def token_required(f):
 
 # ========== WEB SOCKET EVENTS ==========
 
-@socketio.on('connect')
-def handle_connect():
-    logger.info(f"Client connected: {request.sid}")
-    emit('connected', {'status': 'connected', 'sid': request.sid})
+# Only register SocketIO events if SocketIO is available
+if socketio is not None:
+    @socketio.on('connect')
+    def handle_connect():
+        logger.info(f"Client connected: {request.sid}")
+        emit('connected', {'status': 'connected', 'sid': request.sid})
 
-@socketio.on('disconnect')
-def handle_disconnect():
-    logger.info(f"Client disconnected: {request.sid}")
+    @socketio.on('disconnect')
+    def handle_disconnect():
+        logger.info(f"Client disconnected: {request.sid}")
 
-@socketio.on('subscribe')
-def handle_subscribe(data):
-    """Subscribe to real-time updates"""
-    user_id = data.get('user_id')
-    channel = data.get('channel')
-    
-    if user_id and channel:
-        realtime_service.add_connection(user_id, request.sid)
-        emit('subscribed', {'channel': channel, 'status': 'success'})
+    @socketio.on('subscribe')
+    def handle_subscribe(data):
+        """Subscribe to real-time updates"""
+        user_id = data.get('user_id')
+        channel = data.get('channel')
+        
+        if user_id and channel:
+            realtime_service.add_connection(user_id, request.sid)
+            emit('subscribed', {'channel': channel, 'status': 'success'})
+else:
+    logger.info("SocketIO not available - WebSocket events disabled")
 
 # ========== API ROUTES ==========
 
@@ -1298,7 +1311,7 @@ if __name__ == '__main__':
     logger.info("AI Powered by Groq: Using llama-3.1-8b-instant (Fast & Efficient)")
     logger.info("Smart Literature: AI-powered relevance analysis")
     logger.info("Authentication: Bearer token required")
-    logger.info("WebSocket: Real-time notifications available")
+    logger.info(f"WebSocket: {'Available' if socketio else 'Disabled (compatibility issue)'}")
     logger.info(f"Environment: {os.getenv('FLASK_ENV', 'production')}")
     logger.info(f"Port: {port}")
     logger.info(f"Debug: {debug_mode}")
@@ -1309,5 +1322,9 @@ if __name__ == '__main__':
         # This code won't be executed when using Gunicorn
         logger.info("Production mode: Use Gunicorn to serve this application")
     else:
-        # Development mode with SocketIO
-        socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode)
+        # Development mode with SocketIO (if available)
+        if socketio:
+            socketio.run(app, host='0.0.0.0', port=port, debug=debug_mode)
+        else:
+            logger.warning("SocketIO not available, running with standard Flask server")
+            app.run(host='0.0.0.0', port=port, debug=debug_mode)
