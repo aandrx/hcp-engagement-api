@@ -43,9 +43,15 @@ else:
 # Enhanced CORS configuration for open-source frontend compatibility
 # allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173').split(',')
 
-# Enhanced CORS configuration for development
+# Enhanced CORS configuration for development and GitHub Pages
 CORS(app, 
-    origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5173", "http://localhost:5002"],
+    origins=[
+        "http://localhost:3000", 
+        "http://127.0.0.1:3000", 
+        "http://localhost:5173", 
+        "http://localhost:5002",
+        "https://aandrx.github.io"  # GitHub Pages
+    ],
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type", "X-Requested-With", "Origin", "Accept"],
     supports_credentials=False
