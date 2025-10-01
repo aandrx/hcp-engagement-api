@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-01T11:35:46Z",
+  "timestamp": "2025-10-01T12:29:39Z",
   "overall_status": "unhealthy",
   "documentation": {
     "status": "healthy",
@@ -16,7 +16,7 @@
     "api_health": "unreachable",
     "groq_integration": "unknown",
     "documentation": "unknown",
-    "last_checked": "2025-10-01T11:35:46Z",
+    "last_checked": "2025-10-01T12:29:39Z",
     "authentication_test": "skipped",
     "endpoints": {
       "health": "https://hcp-engagement-api.onrender.com/health",
