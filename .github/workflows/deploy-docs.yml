@@ -6,6 +6,7 @@ on:
     paths:
       - 'index.html'
       - 'health.html'
+      - 'verify_status/health.html'
       - 'openapi.yaml'
       - 'README.md'
       - '.github/workflows/health-check.yml'
