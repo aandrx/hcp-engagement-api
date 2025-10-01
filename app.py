@@ -1362,9 +1362,14 @@ if __name__ == '__main__':
     
     # Use different server for production vs development
     if os.getenv('FLASK_ENV') == 'production':
-        # In production, Gunicorn will handle the WSGI app
-        # This code won't be executed when using Gunicorn
-        logger.info("Production mode: Use Gunicorn to serve this application")
+        # In production with Gunicorn, this won't be called
+        # But if run directly (e.g., for testing), start the server
+        logger.info("Production mode: Best served with Gunicorn")
+        logger.info("Starting Flask development server for local production testing...")
+        if socketio:
+            socketio.run(app, host='0.0.0.0', port=port, debug=False)
+        else:
+            app.run(host='0.0.0.0', port=port, debug=False)
     else:
         # Development mode with SocketIO (if available)
         if socketio:
