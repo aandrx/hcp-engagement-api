@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-10-02T13:41:31Z",
-  "overall_status": "unhealthy",
+  "timestamp": "2025-10-02T14:13:25Z",
+  "overall_status": "healthy",
   "documentation": {
     "status": "healthy",
     "url": "https://aandrx.github.io/hcp-engagement-api/",
@@ -11,13 +11,13 @@
     "url": "https://aandrx.github.io/hcp-engagement-api/health.html"
   },
   "render_deployment": {
-    "status": "unhealthy",
+    "status": "healthy",
     "url": "https://hcp-engagement-api.onrender.com",
-    "api_health": "unreachable",
-    "groq_integration": "unknown",
-    "documentation": "unknown",
-    "last_checked": "2025-10-02T13:41:31Z",
-    "authentication_test": "skipped",
+    "api_health": "unknown",
+    "groq_integration": "inactive",
+    "documentation": "available",
+    "last_checked": "2025-10-02T14:13:25Z",
+    "authentication_test": "working",
     "endpoints": {
       "health": "https://hcp-engagement-api.onrender.com/health",
       "docs": "https://hcp-engagement-api.onrender.com/docs",
